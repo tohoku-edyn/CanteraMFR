@@ -1,5 +1,6 @@
 # CanteraMFR
 
+Explanation on CanteraMFR code will be posted here.
 
 # FAQ on the MFR system
 - [Computational model for weak flame in MFR](http://www.ifs.tohoku.ac.jp/enerdyn/en/research/mfr-faq1.html)
