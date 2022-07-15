@@ -3,6 +3,6 @@
 
 
 
-# [How to cite](../../How-to-cite)
+# [How to cite](../../wiki/How-to-cite)
 
 
