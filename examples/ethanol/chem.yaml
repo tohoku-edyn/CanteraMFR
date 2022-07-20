@@ -1,0 +1,2365 @@
+description: |-
+  Marinov, N. M, "A Detailed Chemical Kinetic Model for High Temperature Ethanol Oxidation"
+  Int. J. Chem. Kinet. 31:183-220 (1999);
+  Lawrence Livermore National Laboratory, Livermore, CA,
+  UCRL-JC-131657
+  UCRL-WEB-204236
+  Review and release date: May 19, 2004.
+  Date: Mon, 26 Apr 1999 15:25:31 -0700 (PDT)
+  From: "Nick M. Marinov" <marinov@west.llnl.gov>
+
+  Marinov, N. M, "A Detailed Chemical Kinetic Model for High Temperature Ethanol Oxidation"
+  Int. J. Chem. Kinet. 31:183-220 (1999);
+  Lawrence Livermore National Laboratory, Livermore, CA,
+  UCRL-JC-131657
+  UCRL-WEB-208393
+  Review and release date: December 3, 2004.
+  Date: Mon, 26 Apr 1999 15:25:31 -0700 (PDT)
+  From: "Nick M. Marinov" <marinov@west.llnl.gov>
+
+generator: ck2yaml
+input-files: [chem.inp, therm.dat, tran.dat]
+cantera-version: 2.5.1
+date: Thu, 14 Apr 2022 10:42:43 +0900
+
+units: {length: cm, time: s, quantity: mol, activation-energy: cal/mol}
+
+phases:
+- name: gas
+  thermo: ideal-gas
+  elements: [H, O, C, N]
+  species: [h2, h, ch4, ch3, ch2, ch, ch2o, hco, co2, co, o2, o, oh, ho2,
+    h2o2, h2o, c2h, hcco, c2h2, c2h3, c2h4, c2h5, c2h6, ch2oh, ch3o, hccoh,
+    h2ccch, c3h2, ch2(s), ch2co, c2o, hcoh, ch3oh, ch2hco, c3h6, ac3h5,
+    pc3h5, sc3h5, ch2chcho, pc3h4, ac3h4, ch3co, ch2chco, ch3chco, ch3hco,
+    chocho, ic3h7, nc3h7, c2h5oh, c2h4oh, ch3choh, ch3ch2o, ch2chch2o, hcooh,
+    c3h8, hoc2h4o2, n2]
+  kinetics: gas
+  transport: mixture-averaged
+  state: {T: 300.0, P: 1 atm}
+
+species:
+- name: h2
+  composition: {H: 2}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [3.298124, 8.249442e-04, -8.143015e-07, -9.475434e-11, 4.134872e-13,
+      -1012.521, -3.294094]
+    - [2.991423, 7.000644e-04, -5.633829e-08, -9.231578e-12, 1.582752e-15,
+      -835.034, -1.35511]
+    note: '121286'
+  transport:
+    model: gas
+    geometry: linear
+    well-depth: 38.0
+    diameter: 2.92
+    polarizability: 0.79
+    rotational-relaxation: 280.0
+- name: h
+  composition: {H: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [2.5, 0.0, 0.0, 0.0, 0.0, 2.547163e+04, -0.4601176]
+    - [2.5, 0.0, 0.0, 0.0, 0.0, 2.547163e+04, -0.4601176]
+    note: '120186'
+  transport:
+    model: gas
+    geometry: atom
+    well-depth: 145.0
+    diameter: 2.05
+- name: ch4
+  composition: {C: 1, H: 4}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [0.7787415, 0.01747668, -2.783409e-05, 3.049708e-08, -1.223931e-11,
+      -9825.229, 13.72219]
+    - [1.683479, 0.01023724, -3.875129e-06, 6.785585e-10, -4.503423e-14,
+      -1.008079e+04, 9.623395]
+    note: '121286'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 141.4
+    diameter: 3.746
+    polarizability: 2.6
+    rotational-relaxation: 13.0
+- name: ch3
+  composition: {C: 1, H: 3}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [2.430443, 0.0111241, -1.68022e-05, 1.621829e-08, -5.864953e-12, 1.642378e+04,
+      6.789794]
+    - [2.844052, 6.137974e-03, -2.230345e-06, 3.785161e-10, -2.452159e-14,
+      1.643781e+04, 5.452697]
+    note: '121286'
+  transport:
+    model: gas
+    geometry: linear
+    well-depth: 144.0
+    diameter: 3.8
+- name: ch2
+  composition: {C: 1, H: 2}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1350.0, 5000.0]
+    data:
+    - [3.49623989, 2.20258645e-03, -4.23828799e-07, 1.36484706e-11, 4.31937372e-15,
+      4.59192771e+04, 2.94964354]
+    - [3.44310466, 2.32638011e-03, -5.33147998e-07, 5.74043968e-11, -2.42694849e-15,
+      4.59375743e+04, 3.23484714]
+    note: llnl94
+  transport:
+    model: gas
+    geometry: linear
+    well-depth: 144.0
+    diameter: 3.8
+- name: ch
+  composition: {C: 1, H: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [3.200202, 2.072876e-03, -5.134431e-06, 5.73389e-09, -1.955533e-12,
+      7.045259e+04, 3.331588]
+    - [2.196223, 2.340381e-03, -7.058201e-07, 9.007582e-11, -3.85504e-15,
+      7.086723e+04, 9.178373]
+    note: '121286'
+  transport:
+    model: gas
+    geometry: linear
+    well-depth: 80.0
+    diameter: 2.75
+- name: ch2o
+  composition: {C: 1, H: 2, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [1.652731, 0.01263144, -1.888168e-05, 2.050031e-08, -8.413237e-12,
+      -1.48654e+04, 13.78482]
+    - [2.995606, 6.681321e-03, -2.628955e-06, 4.737153e-10, -3.212517e-14,
+      -1.532037e+04, 6.912572]
+    note: '121286'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 498.0
+    diameter: 3.59
+    rotational-relaxation: 2.0
+- name: hco
+  composition: {H: 1, C: 1, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [2.89833, 6.199147e-03, -9.623084e-06, 1.089825e-08, -4.574885e-12,
+      4159.922, 8.983614]
+    - [3.557271, 3.345573e-03, -1.335006e-06, 2.470573e-10, -1.713851e-14,
+      3916.324, 5.552299]
+    note: '121286'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 498.0
+    diameter: 3.59
+- name: co2
+  composition: {C: 1, O: 2}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [2.275725, 9.922072e-03, -1.040911e-05, 6.866687e-09, -2.11728e-12,
+      -4.837314e+04, 10.18849]
+    - [4.453623, 3.140169e-03, -1.278411e-06, 2.393997e-10, -1.669033e-14,
+      -4.896696e+04, -0.9553959]
+    note: '121286'
+  transport:
+    model: gas
+    geometry: linear
+    well-depth: 244.0
+    diameter: 3.763
+    polarizability: 2.65
+    rotational-relaxation: 2.1
+- name: co
+  composition: {C: 1, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [3.262452, 1.511941e-03, -3.881755e-06, 5.581944e-09, -2.474951e-12,
+      -1.431054e+04, 4.848897]
+    - [3.025078, 1.442689e-03, -5.630828e-07, 1.018581e-10, -6.910952e-15,
+      -1.426835e+04, 6.108218]
+    note: '121286'
+  transport:
+    model: gas
+    geometry: linear
+    well-depth: 98.1
+    diameter: 3.65
+    polarizability: 1.95
+    rotational-relaxation: 1.8
+- name: o2
+  composition: {O: 2}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [3.212936, 1.127486e-03, -5.75615e-07, 1.313877e-09, -8.768554e-13,
+      -1005.249, 6.034738]
+    - [3.697578, 6.135197e-04, -1.258842e-07, 1.775281e-11, -1.136435e-15,
+      -1233.93, 3.189166]
+    note: '121386'
+  transport:
+    model: gas
+    geometry: linear
+    well-depth: 107.4
+    diameter: 3.458
+    polarizability: 1.6
+    rotational-relaxation: 3.8
+- name: o
+  composition: {O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [2.946429, -1.638166e-03, 2.421032e-06, -1.602843e-09, 3.890696e-13,
+      2.914764e+04, 2.963995]
+    - [2.54206, -2.755062e-05, -3.102803e-09, 4.551067e-12, -4.368052e-16,
+      2.92308e+04, 4.920308]
+    note: '120186'
+  transport:
+    model: gas
+    geometry: atom
+    well-depth: 80.0
+    diameter: 2.75
+- name: oh
+  composition: {O: 1, H: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [3.637266, 1.85091e-04, -1.676165e-06, 2.387203e-09, -8.431442e-13,
+      3606.782, 1.35886]
+    - [2.88273, 1.013974e-03, -2.276877e-07, 2.174684e-11, -5.126305e-16,
+      3886.888, 5.595712]
+    note: '121286'
+  transport:
+    model: gas
+    geometry: linear
+    well-depth: 80.0
+    diameter: 2.75
+- name: ho2
+  composition: {H: 1, O: 2}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1451.0, 5000.0]
+    data:
+    - [3.47629499, 2.20467745e-03, 1.56841876e-06, -2.12755802e-09, 5.83140718e-13,
+      617.073446, 7.02308516]
+    - [4.58311499, 1.72730339e-03, -6.19183136e-07, 9.91939193e-11, -5.88221567e-15,
+      31.3365859, 0.346199386]
+    note: mar97
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 107.4
+    diameter: 3.458
+    rotational-relaxation: 1.0
+    note: '*'
+- name: h2o2
+  composition: {H: 2, O: 2}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [3.388754, 6.569226e-03, -1.485013e-07, -4.625806e-09, 2.471515e-12,
+      -1.766315e+04, 6.785363]
+    - [4.573167, 4.336136e-03, -1.474689e-06, 2.348904e-10, -1.431654e-14,
+      -1.800696e+04, 0.501137]
+    note: '120186'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 107.4
+    diameter: 3.458
+    rotational-relaxation: 3.8
+- name: h2o
+  composition: {H: 2, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [3.386842, 3.474982e-03, -6.354696e-06, 6.968581e-09, -2.506588e-12,
+      -3.020811e+04, 2.590233]
+    - [2.672146, 3.056293e-03, -8.73026e-07, 1.200996e-10, -6.391618e-15,
+      -2.989921e+04, 6.862817]
+    note: '20387'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 572.4
+    diameter: 2.605
+    dipole: 1.844
+    rotational-relaxation: 4.0
+- name: c2h
+  composition: {C: 2, H: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 4000.0]
+    data:
+    - [2.737704, 8.048446e-03, -9.24431e-06, 6.525259e-09, -1.93958e-12,
+      6.683813e+04, 7.30022]
+    - [3.986367, 3.143123e-03, -1.267243e-06, 2.924363e-10, -2.71632e-14,
+      6.655884e+04, 1.191063]
+    note: '81193'
+  transport:
+    model: gas
+    geometry: linear
+    well-depth: 265.3
+    diameter: 3.721
+    rotational-relaxation: 2.5
+    note: nmm
+- name: hcco
+  composition: {H: 1, C: 2, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 4000.0]
+    data:
+    - [5.047965, 4.453478e-03, 2.268283e-07, -1.482095e-09, 2.250742e-13,
+      1.965892e+04, 0.4818439]
+    - [6.758073, 2.0004e-03, -2.027607e-07, -1.041132e-10, 1.965165e-14,
+      1.901513e+04, -9.071262]
+    note: '32387'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 150.0
+    diameter: 2.5
+    rotational-relaxation: 1.0
+    note: '*'
+- name: c2h2
+  composition: {C: 2, H: 2}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [2.013562, 0.01519045, -1.616319e-05, 9.078992e-09, -1.912746e-12,
+      2.612444e+04, 8.805378]
+    - [4.43677, 5.376039e-03, -1.912817e-06, 3.286379e-10, -2.15671e-14,
+      2.566766e+04, -2.800338]
+    note: '121386'
+  transport:
+    model: gas
+    geometry: linear
+    well-depth: 265.3
+    diameter: 3.721
+    rotational-relaxation: 2.5
+    note: nmm
+- name: c2h3
+  composition: {C: 2, H: 3}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1671.0, 5000.0]
+    data:
+    - [2.73925942, 7.03011591e-03, 2.36647299e-06, -3.59569737e-09, 8.91756491e-13,
+      3.42868979e+04, 10.1531535]
+    - [3.96047713, 7.99426013e-03, -2.85608087e-06, 4.58350813e-10, -2.7257014e-14,
+      3.35153544e+04, 2.25663414]
+    note: mar94
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 265.3
+    diameter: 3.721
+    rotational-relaxation: 1.0
+    note: nmm
+- name: c2h4
+  composition: {C: 2, H: 4}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [-0.861488, 0.02796163, -3.388677e-05, 2.785152e-08, -9.737879e-12,
+      5573.046, 24.21149]
+    - [3.528419, 0.01148518, -4.418385e-06, 7.844601e-10, -5.266848e-14,
+      4428.289, 2.230389]
+    note: '121286'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 238.4
+    diameter: 3.496
+    rotational-relaxation: 1.5
+    note: nmm
+- name: c2h5
+  composition: {C: 2, H: 5}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1375.0, 5000.0]
+    data:
+    - [1.47374852, 0.0163606611, -4.32896826e-06, -1.17270665e-09, 5.72325883e-13,
+      1.33326992e+04, 16.6349852]
+    - [5.60116091, 0.0106977081, -3.6350478e-06, 5.61816654e-10, -3.24914714e-14,
+      1.14539845e+04, -7.02252408]
+    note: jpc93
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 247.5
+    diameter: 4.35
+    rotational-relaxation: 1.5
+    note: nmm
+- name: c2h6
+  composition: {C: 2, H: 6}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 4000.0]
+    data:
+    - [1.462539, 0.01549467, 5.780507e-06, -1.257832e-08, 4.586267e-12,
+      -1.123918e+04, 14.43229]
+    - [4.825938, 0.01384043, -4.557259e-06, 6.724967e-10, -3.598161e-14,
+      -1.271779e+04, -5.239507]
+    note: '121686'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 247.5
+    diameter: 4.35
+    rotational-relaxation: 1.5
+    note: nmm
+- name: ch2oh
+  composition: {C: 1, H: 3, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1410.0, 5000.0]
+    data:
+    - [2.60067849, 0.0128447854, -8.33796185e-06, 2.75727606e-09, -3.57041106e-13,
+      -2334.78724, 11.3272307]
+    - [6.00127803, 4.98721568e-03, -1.60953515e-06, 2.40227135e-10, -1.355827e-14,
+      -3501.57098, -6.92836844]
+    note: mar97
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 417.0
+    diameter: 3.69
+    dipole: 1.7
+    rotational-relaxation: 2.0
+- name: ch3o
+  composition: {C: 1, H: 3, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 3000.0]
+    data:
+    - [2.106204, 7.216595e-03, 5.338472e-06, -7.377636e-09, 2.075611e-12,
+      978.6011, 13.15218]
+    - [3.7708, 7.871497e-03, -2.656384e-06, 3.944431e-10, -2.112616e-14,
+      127.8325, 2.929575]
+    note: '121686'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 417.0
+    diameter: 3.69
+    dipole: 1.7
+    rotational-relaxation: 2.0
+- name: hccoh
+  composition: {H: 2, C: 2, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 4000.0]
+    data:
+    - [3.899465, 9.701075e-03, -3.119309e-07, -5.537732e-09, 2.465732e-12,
+      8701.19, 4.491875]
+    - [7.328324, 3.336416e-03, -3.024705e-07, -1.781106e-10, 3.245168e-14,
+      7598.258, -14.01214]
+    note: '32387'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 436.0
+    diameter: 3.97
+    rotational-relaxation: 2.0
+- name: h2ccch
+  composition: {C: 3, H: 3}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 4000.0]
+    data:
+    - [4.7542, 0.01108028, 2.793323e-07, -5.479212e-09, 1.949629e-12, 3.988883e+04,
+      0.5854549]
+    - [8.831047, 4.357195e-03, -4.109067e-07, -2.368723e-10, 4.37652e-14,
+      3.84742e+04, -21.77919]
+    note: '82489'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 252.0
+    diameter: 4.76
+    rotational-relaxation: 1.0
+    note: jam
+- name: c3h2
+  composition: {H: 2, C: 3}
+  thermo:
+    model: NASA7
+    temperature-ranges: [150.0, 1000.0, 4000.0]
+    data:
+    - [3.166714, 0.02482572, -4.591637e-05, 4.268019e-08, -1.482152e-11,
+      6.350421e+04, 8.869446]
+    - [7.670981, 2.748749e-03, -4.370943e-07, -6.455599e-11, 1.663887e-14,
+      6.259722e+04, -12.3689]
+    note: '102193'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 209.0
+    diameter: 4.1
+    rotational-relaxation: 1.0
+    note: '*'
+- name: ch2(s)
+  composition: {C: 1, H: 2}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1359.0, 5000.0]
+    data:
+    - [3.32340701, 2.28062579e-03, -2.48156016e-07, -1.02065386e-10, 2.48826619e-14,
+      5.04954469e+04, 3.09401497]
+    - [3.0962718, 2.80839185e-03, -7.13614526e-07, 8.42136298e-11, -3.84640828e-15,
+      5.05739697e+04, 4.31392269]
+    note: adjnbr
+  transport:
+    model: gas
+    geometry: linear
+    well-depth: 144.0
+    diameter: 3.8
+- name: ch2co
+  composition: {C: 2, H: 2, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [2.974971, 0.01211871, -2.345046e-06, -6.466685e-09, 3.905649e-12,
+      -7632.637, 8.673553]
+    - [6.038817, 5.80484e-03, -1.920954e-06, 2.794485e-10, -1.458868e-14,
+      -8583.402, -7.657581]
+    note: '121686'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 436.0
+    diameter: 3.97
+    rotational-relaxation: 2.0
+- name: c2o
+  composition: {C: 2, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [3.368851, 8.241803e-03, -8.765145e-06, 5.569262e-09, -1.540009e-12,
+      3.317081e+04, 6.713314]
+    - [4.849809, 2.947585e-03, -1.090729e-06, 1.792562e-10, -1.115758e-14,
+      3.282055e+04, -0.6453226]
+    note: '121286'
+  transport:
+    model: gas
+    geometry: linear
+    well-depth: 232.4
+    diameter: 3.828
+    rotational-relaxation: 1.0
+    note: '*'
+- name: hcoh
+  composition: {C: 1, H: 2, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1398.0, 5000.0]
+    data:
+    - [-2.82157421, 0.0357331702, -3.8086158e-05, 1.86205951e-08, -3.45957838e-12,
+      1.12956672e+04, 34.8487757]
+    - [9.18749272, 1.52011152e-03, -6.27603516e-07, 1.09727989e-10, -6.89655128e-15,
+      7813.64593, -27.3434214]
+    note: mar94
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 498.0
+    diameter: 3.59
+    rotational-relaxation: 1.0
+- name: ch3oh
+  composition: {C: 1, H: 4, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [2.660115, 7.341508e-03, 7.170051e-06, -8.793194e-09, 2.39057e-12,
+      -2.535348e+04, 11.23263]
+    - [4.029061, 9.376593e-03, -3.050254e-06, 4.358793e-10, -2.224723e-14,
+      -2.615791e+04, 2.378196]
+    note: '121686'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 481.8
+    diameter: 3.626
+    rotational-relaxation: 1.0
+    note: sve
+- name: ch2hco
+  composition: {O: 1, H: 3, C: 2}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [3.409062, 0.01073857, 1.891492e-06, -7.158583e-09, 2.867385e-12,
+      1521.477, 9.55829]
+    - [5.97567, 8.130591e-03, -2.743624e-06, 4.070304e-10, -2.176017e-14,
+      490.3218, -5.045251]
+    note: '110393'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 436.0
+    diameter: 3.97
+    rotational-relaxation: 2.0
+- name: c3h6
+  composition: {C: 3, H: 6}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [1.493307, 0.02092518, 4.486794e-06, -1.668912e-08, 7.158146e-12,
+      1074.826, 16.14534]
+    - [6.732257, 0.01490834, -4.949899e-06, 7.212022e-10, -3.766204e-14,
+      -923.5703, -13.31335]
+    note: '120186'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 307.8
+    diameter: 4.14
+    rotational-relaxation: 1.0
+    note: nmm
+- name: ac3h5
+  composition: {C: 3, H: 5}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1378.0, 5000.0]
+    data:
+    - [0.973013819, 0.0281818597, -1.62938809e-05, 3.96194325e-09, -2.25704537e-13,
+      1.85230753e+04, 19.3201408]
+    - [9.75762472, 0.0100615154, -3.40608453e-06, 5.25696641e-10, -3.03917313e-14,
+      1.52845733e+04, -28.6237172]
+    note: mar97
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 316.0
+    diameter: 4.22
+    rotational-relaxation: 1.0
+- name: pc3h5
+  composition: {C: 3, H: 5}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 4000.0]
+    data:
+    - [3.161863, 0.015181, 2.722659e-06, -5.177112e-09, 5.435286e-14, 3.095548e+04,
+      11.97973]
+    - [9.209764, 7.871413e-03, -7.724523e-07, -4.497357e-10, 8.377272e-14,
+      2.853967e+04, -22.3237]
+    note: '82489'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 316.0
+    diameter: 4.22
+    rotational-relaxation: 1.0
+- name: sc3h5
+  composition: {C: 3, H: 5}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 4000.0]
+    data:
+    - [3.385811, 0.01404534, 3.204127e-06, -3.82412e-09, -9.053742e-13,
+      2.909066e+04, 11.26649]
+    - [9.101018, 7.964168e-03, -7.884945e-07, -4.562036e-10, 8.529212e-14,
+      2.67068e+04, -21.50559]
+    note: '82489'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 316.0
+    diameter: 4.22
+    rotational-relaxation: 1.0
+- name: ch2chcho
+  composition: {C: 3, H: 4, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1389.0, 5000.0]
+    data:
+    - [0.580467878, 0.0316384674, -2.27932718e-05, 8.42301579e-09, -1.27327985e-12,
+      -9471.46816, 22.1264233]
+    - [9.95950056, 9.86563039e-03, -3.42048051e-06, 5.3597837e-10, -3.13001966e-14,
+      -1.27456196e+04, -28.2995864]
+    note: mar94
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 443.2
+    diameter: 4.12
+    rotational-relaxation: 1.0
+    note: nmm
+- name: pc3h4
+  composition: {H: 4, C: 3}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1400.0, 4000.0]
+    data:
+    - [3.02973, 0.01498961, -1.3985e-06, -3.969619e-09, 1.388217e-12, 2.148408e+04,
+      8.004594]
+    - [9.768102, 5.219151e-03, -3.75314e-07, -2.992191e-10, 5.107878e-14,
+      1.860277e+04, -30.20678]
+    note: '101993'
+  transport:
+    model: gas
+    geometry: linear
+    well-depth: 324.8
+    diameter: 4.29
+    rotational-relaxation: 1.0
+    note: nmm
+- name: ac3h4
+  composition: {H: 4, C: 3}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1400.0, 4000.0]
+    data:
+    - [2.539831, 0.01633437, -1.76495e-06, -4.647365e-09, 1.729131e-12,
+      2.251243e+04, 9.935702]
+    - [9.776256, 5.302138e-03, -3.701118e-07, -3.026386e-10, 5.089581e-14,
+      1.954972e+04, -30.77061]
+    note: '101993'
+  transport:
+    model: gas
+    geometry: linear
+    well-depth: 324.8
+    diameter: 4.29
+    rotational-relaxation: 1.0
+    note: nmm
+- name: ch3co
+  composition: {C: 2, H: 3, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [3.125278, 9.77822e-03, 4.521448e-06, -9.009462e-09, 3.193718e-12,
+      -4108.508, 11.22885]
+    - [5.612279, 8.449886e-03, -2.854147e-06, 4.238376e-10, -2.268404e-14,
+      -5187.863, -3.274949]
+    note: '120186'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 436.0
+    diameter: 3.97
+    rotational-relaxation: 2.0
+- name: ch2chco
+  composition: {C: 3, H: 3, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1391.0, 5000.0]
+    data:
+    - [0.78337045, 0.0290353899, -2.28846927e-05, 9.25645234e-09, -1.52213238e-12,
+      6134.09525, 22.0858902]
+    - [9.48105566, 7.77714755e-03, -2.71155669e-06, 4.26495971e-10, -2.49722495e-14,
+      3208.58016, -24.291668]
+    note: mar94
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 443.2
+    diameter: 4.12
+    rotational-relaxation: 1.0
+    note: nmm
+- name: ch3chco
+  composition: {C: 3, H: 4, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1392.0, 5000.0]
+    data:
+    - [2.69187311, 0.0249761396, -1.61712107e-05, 5.46391115e-09, -7.62496644e-13,
+      -1.18758805e+04, 11.9898101]
+    - [9.40386796, 9.9099486e-03, -3.34130605e-06, 5.13787016e-10, -2.96102254e-14,
+      -1.42771281e+04, -24.2902025]
+    note: mar94
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 443.2
+    diameter: 4.12
+    rotational-relaxation: 1.0
+    note: nmm
+- name: ch3hco
+  composition: {C: 2, O: 1, H: 4}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [2.505695, 0.01336991, 4.671953e-06, -1.12814e-08, 4.263566e-12, -2.124589e+04,
+      13.35089]
+    - [5.86865, 0.01079424, -3.64553e-06, 5.412912e-10, -2.896844e-14, -2.264569e+04,
+      -6.012946]
+    note: '120186'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 436.0
+    diameter: 3.97
+    rotational-relaxation: 2.0
+- name: chocho
+  composition: {C: 2, H: 2, O: 2}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1396.0, 5000.0]
+    data:
+    - [1.88105121, 0.0236386368, -1.83443295e-05, 6.84842963e-09, -9.92733674e-13,
+      -2.6928019e+04, 17.2994753]
+    - [9.75438561, 4.97645947e-03, -1.74410483e-06, 2.75586994e-10, -1.61969892e-14,
+      -2.95832896e+04, -24.803837]
+    note: therm
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 440.2
+    diameter: 4.01
+    rotational-relaxation: 2.0
+    note: nmm
+- name: ic3h7
+  composition: {C: 3, H: 7}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1373.0, 5000.0]
+    data:
+    - [0.586358461, 0.0321021065, -1.69517004e-05, 3.98986301e-09, -2.87510333e-13,
+      9260.03586, 22.6632577]
+    - [9.73563939, 0.0143303634, -4.88106037e-06, 7.5630481e-10, -4.38380156e-14,
+      5670.00911, -27.8414926]
+    note: mar97
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 303.4
+    diameter: 4.81
+    rotational-relaxation: 1.0
+    note: nmm
+- name: nc3h7
+  composition: {C: 3, H: 7}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1390.0, 5000.0]
+    data:
+    - [0.113366571, 0.0354171389, -2.28073697e-05, 7.88746806e-09, -1.16856961e-12,
+      1.06821595e+04, 24.5520758]
+    - [9.4379935, 0.0147160681, -5.0333842e-06, 7.81317497e-10, -4.3520926e-14,
+      7273.96508, -26.0136738]
+    note: mar97
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 303.4
+    diameter: 4.81
+    rotational-relaxation: 1.0
+    note: nmm
+- name: c2h5oh
+  composition: {C: 2, H: 6, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [4.8586957, -3.7401726e-03, 6.9555378e-05, -8.8654796e-08, 3.5168835e-11,
+      -2.9996132e+04, 4.8018545]
+    - [6.5624365, 0.015204222, -5.3896795e-06, 8.6225011e-10, -5.1289787e-14,
+      -3.1525621e+04, -9.4730202]
+    note: bur94
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 470.6
+    diameter: 4.41
+    rotational-relaxation: 1.5
+    note: nmm
+- name: c2h4oh
+  composition: {C: 2, H: 5, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1405.0, 5000.0]
+    data:
+    - [0.776157606, 0.0291002514, -2.13980569e-05, 8.16833894e-09, -1.255916e-12,
+      -5468.08396, 22.1060185]
+    - [8.75544496, 9.49453147e-03, -3.08803575e-06, 4.63537621e-10, -2.62730044e-14,
+      -8096.02047, -20.3271929]
+    note: mar96
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 470.6
+    diameter: 4.41
+    rotational-relaxation: 1.5
+- name: ch3choh
+  composition: {C: 2, H: 5, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1524.0, 5000.0]
+    data:
+    - [2.10026806, 0.0192626679, -5.17437436e-06, -1.96190582e-09, 9.3639706e-13,
+      -6128.73036, 14.0909302]
+    - [7.95432747, 0.010500817, -3.5063159e-06, 5.36174608e-10, -3.07978459e-14,
+      -8621.99768, -19.0411129]
+    note: mar96
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 470.6
+    diameter: 4.41
+    rotational-relaxation: 1.5
+- name: ch3ch2o
+  composition: {C: 2, H: 5, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1405.0, 5000.0]
+    data:
+    - [-0.271296378, 0.0298839812, -1.97090548e-05, 6.37339893e-09, -7.77965054e-13,
+      -3163.97196, 24.7706003]
+    - [8.31182392, 0.0103426319, -3.39186089e-06, 5.12212617e-10, -2.91601713e-14,
+      -6130.97954, -21.3985581]
+    note: mar96
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 470.6
+    diameter: 4.41
+    rotational-relaxation: 1.5
+    note: nmm
+- name: ch2chch2o
+  composition: {C: 3, H: 5, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1380.0, 5000.0]
+    data:
+    - [1.19822582, 0.0305579837, -1.80630276e-05, 4.86150033e-09, -4.19854562e-13,
+      9707.99566, 19.8555652]
+    - [10.2551752, 0.011498372, -3.84645659e-06, 5.88910346e-10, -3.38557923e-14,
+      6391.42592, -29.4665611]
+    note: WJP11/18/04
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 424.6
+    diameter: 4.82
+    rotational-relaxation: 1.0
+- name: hcooh
+  composition: {C: 1, H: 2, O: 2}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1500.0, 4000.0]
+    data:
+    - [0.9326031, 0.01891002, -1.554964e-05, 7.290031e-09, -1.483695e-12,
+      -4.760071e+04, 19.50653]
+    - [7.959698, 3.024532e-03, -3.434242e-07, -1.326767e-10, 2.52024e-14,
+      -5.027445e+04, -18.72208]
+    note: '103190'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 436.0
+    diameter: 3.97
+    rotational-relaxation: 2.0
+- name: c3h8
+  composition: {C: 3, H: 8}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [0.8969208, 0.02668986, 5.431425e-06, -2.126001e-08, 9.24333e-12,
+      -1.395492e+04, 19.35533]
+    - [7.525217, 0.01889034, -6.283924e-06, 9.179373e-10, -4.81241e-14,
+      -1.646455e+04, -17.8439]
+    note: '120186'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 303.4
+    diameter: 4.81
+    rotational-relaxation: 1.0
+    note: nmm
+- name: hoc2h4o2
+  composition: {C: 2, H: 5, O: 3}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1395.0, 5000.0]
+    data:
+    - [3.58811609, 0.0299414161, -2.35156549e-05, 1.12635525e-08, -2.28663686e-12,
+      -2.17409435e+04, 14.2166729]
+    - [9.22339915, 0.0141346358, -4.75283025e-06, 7.28795964e-10, -4.18969629e-14,
+      -2.35984031e+04, -15.3847386]
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 470.6
+    diameter: 4.41
+    rotational-relaxation: 1.5
+    note: 7/01 same as c2h5oh, wjp
+- name: n2
+  composition: {N: 2}
+  thermo:
+    model: NASA7
+    temperature-ranges: [300.0, 1000.0, 5000.0]
+    data:
+    - [3.298677, 1.40824e-03, -3.963222e-06, 5.641515e-09, -2.444855e-12,
+      -1020.9, 3.950372]
+    - [2.92664, 1.487977e-03, -5.684761e-07, 1.009704e-10, -6.753351e-15,
+      -922.7977, 5.980528]
+    note: '121286'
+  transport:
+    model: gas
+    geometry: linear
+    well-depth: 97.53
+    diameter: 3.621
+    polarizability: 1.76
+    rotational-relaxation: 4.0
+
+reactions:
+- equation: oh + h2 <=> h + h2o  # Reaction 1
+  rate-constant: {A: 2.14e+08, b: 1.52, Ea: 3449.0}
+  note: Marinov 1995a
+- equation: o + oh <=> o2 + h  # Reaction 2
+  rate-constant: {A: 2.02e+14, b: -0.4, Ea: 0.0}
+  note: Marinov 1995a
+- equation: o + h2 <=> oh + h  # Reaction 3
+  rate-constant: {A: 5.06e+04, b: 2.67, Ea: 6290.0}
+  note: Marinov 1995a
+- equation: h + o2 (+M) <=> ho2 (+M)  # Reaction 4
+  type: falloff
+  low-P-rate-constant: {A: 1.05e+19, b: -1.257, Ea: 0.0}
+  high-P-rate-constant: {A: 4.52e+13, b: 0.0, Ea: 0.0}
+  efficiencies: {h2o: 0.0, h2: 0.0, n2: 0.0, ch4: 10.0, co2: 3.8, co: 1.9}
+  note: Marinov 1995a
+- equation: h + o2 (+n2) <=> ho2 (+n2)  # Reaction 5
+  type: falloff
+  low-P-rate-constant: {A: 2.03e+20, b: -1.59, Ea: 0.0}
+  high-P-rate-constant: {A: 4.52e+13, b: 0.0, Ea: 0.0}
+  note: |-
+    Marinov 1995a
+    Marinov 1995a
+- equation: h + o2 (+h2) <=> ho2 (+h2)  # Reaction 6
+  type: falloff
+  low-P-rate-constant: {A: 1.52e+19, b: -1.133, Ea: 0.0}
+  high-P-rate-constant: {A: 4.52e+13, b: 0.0, Ea: 0.0}
+  note: |-
+    Marinov 1995a
+    Marinov 1995a
+- equation: h + o2 (+h2o) <=> ho2 (+h2o)  # Reaction 7
+  type: falloff
+  low-P-rate-constant: {A: 2.1e+23, b: -2.437, Ea: 0.0}
+  high-P-rate-constant: {A: 4.52e+13, b: 0.0, Ea: 0.0}
+  note: |-
+    Marinov 1995a
+    Marinov 1995a
+- equation: oh + ho2 <=> h2o + o2  # Reaction 8
+  duplicate: true
+  rate-constant: {A: 2.13e+28, b: -4.827, Ea: 3500.0}
+  note: |-
+    Marinov 1995a
+    Hippler 1995
+- equation: oh + ho2 <=> h2o + o2  # Reaction 9
+  duplicate: true
+  rate-constant: {A: 9.1e+14, b: 0.0, Ea: 1.0964e+04}
+  note: Hippler 1995
+- equation: h + ho2 <=> oh + oh  # Reaction 10
+  rate-constant: {A: 1.5e+14, b: 0.0, Ea: 1000.0}
+  note: Marinov 1995a
+- equation: h + ho2 <=> h2 + o2  # Reaction 11
+  rate-constant: {A: 6.63e+13, b: 0.0, Ea: 2126.0}
+  note: Tsang   1986x
+- equation: h + ho2 <=> o + h2o  # Reaction 12
+  rate-constant: {A: 3.01e+13, b: 0.0, Ea: 1721.0}
+  note: Marinov 1995a
+- equation: o + ho2 <=> o2 + oh  # Reaction 13
+  rate-constant: {A: 3.25e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1995a
+- equation: oh + oh <=> o + h2o  # Reaction 14
+  rate-constant: {A: 3.57e+04, b: 2.4, Ea: -2112.0}
+  note: Marinov 1995a
+- equation: h + h + M <=> h2 + M  # Reaction 15
+  type: three-body
+  rate-constant: {A: 1.0e+18, b: -1.0, Ea: 0.0}
+  efficiencies: {h2o: 0.0, h2: 0.0}
+  note: Marinov 1995a
+- equation: h + h + h2 <=> h2 + h2  # Reaction 16
+  rate-constant: {A: 9.2e+16, b: -0.6, Ea: 0.0}
+  note: Marinov 1995a
+- equation: h + h + h2o <=> h2 + h2o  # Reaction 17
+  rate-constant: {A: 6.0e+19, b: -1.25, Ea: 0.0}
+  note: Marinov 1995a
+- equation: h + oh + M <=> h2o + M  # Reaction 18
+  type: three-body
+  rate-constant: {A: 2.21e+22, b: -2.0, Ea: 0.0}
+  efficiencies: {h2o: 6.4}
+  note: Marinov 1995a
+- equation: h + o + M <=> oh + M  # Reaction 19
+  type: three-body
+  rate-constant: {A: 4.71e+18, b: -1.0, Ea: 0.0}
+  efficiencies: {h2o: 6.4}
+  note: Marinov 1995a
+- equation: o + o + M <=> o2 + M  # Reaction 20
+  type: three-body
+  rate-constant: {A: 1.89e+13, b: 0.0, Ea: -1788.0}
+  note: Marinov 1995a
+- equation: ho2 + ho2 <=> h2o2 + o2  # Reaction 21
+  duplicate: true
+  rate-constant: {A: 4.2e+14, b: 0.0, Ea: 1.1982e+04}
+  note: Marinov 1995a
+- equation: ho2 + ho2 <=> h2o2 + o2  # Reaction 22
+  duplicate: true
+  rate-constant: {A: 1.3e+11, b: 0.0, Ea: -1629.0}
+  note: Marinov 1995a
+- equation: oh + oh (+M) <=> h2o2 (+M)  # Reaction 23
+  type: falloff
+  low-P-rate-constant: {A: 3.04e+30, b: -4.63, Ea: 2049.0}
+  high-P-rate-constant: {A: 1.24e+14, b: -0.37, Ea: 0.0}
+  Troe: {A: 0.47, T3: 100.0, T1: 2000.0, T2: 1.0e+15}
+  note: Marinov 1995a
+- equation: h2o2 + h <=> ho2 + h2  # Reaction 24
+  rate-constant: {A: 1.98e+06, b: 2.0, Ea: 2435.0}
+  note: |-
+    Marinov 1995a
+    Marinov 1995a
+- equation: h2o2 + h <=> oh + h2o  # Reaction 25
+  rate-constant: {A: 3.07e+13, b: 0.0, Ea: 4217.0}
+  note: Marinov 1995a
+- equation: h2o2 + o <=> oh + ho2  # Reaction 26
+  rate-constant: {A: 9.55e+06, b: 2.0, Ea: 3970.0}
+  note: Marinov 1995a
+- equation: h2o2 + oh <=> h2o + ho2  # Reaction 27
+  rate-constant: {A: 2.4, b: 4.042, Ea: -2162.0}
+  note: Marinov 1995a
+- equation: ch3 + ch3 (+M) <=> c2h6 (+M)  # Reaction 28
+  type: falloff
+  low-P-rate-constant: {A: 1.14e+36, b: -5.246, Ea: 1705.0}
+  high-P-rate-constant: {A: 9.22e+16, b: -1.174, Ea: 636.0}
+  Troe: {A: 0.405, T3: 1120.0, T1: 69.6, T2: 1.0e+15}
+  efficiencies: {h2o: 5.0, h2: 2.0, co2: 3.0, co: 2.0}
+  note: Walter  1990
+- equation: ch3 + h (+M) <=> ch4 (+M)  # Reaction 29
+  type: falloff
+  low-P-rate-constant: {A: 3.31e+30, b: -4.0, Ea: 2108.0}
+  high-P-rate-constant: {A: 2.14e+15, b: -0.4, Ea: 0.0}
+  Troe: {A: 0.0, T3: 1.0e-15, T1: 1.0e-15, T2: 40.0}
+  efficiencies: {h2o: 5.0, h2: 2.0, co2: 3.0, co: 2.0}
+  note: |-
+    Walter  1990
+    Tsang 1986
+- equation: ch4 + h <=> ch3 + h2  # Reaction 30
+  rate-constant: {A: 2.2e+04, b: 3.0, Ea: 8750.0}
+  note: |-
+    Marinov 1996
+    Miller 1992
+- equation: ch4 + oh <=> ch3 + h2o  # Reaction 31
+  rate-constant: {A: 4.19e+06, b: 2.0, Ea: 2547.0}
+  note: Marinov 1995
+- equation: ch4 + o <=> ch3 + oh  # Reaction 32
+  rate-constant: {A: 6.92e+08, b: 1.56, Ea: 8485.0}
+  note: Marinov 1995
+- equation: ch4 + ho2 <=> ch3 + h2o2  # Reaction 33
+  rate-constant: {A: 1.12e+13, b: 0.0, Ea: 2.464e+04}
+  note: Marinov 1995
+- equation: ch3 + ho2 <=> ch3o + oh  # Reaction 34
+  rate-constant: {A: 7.0e+12, b: 0.0, Ea: 0.0}
+  note: Troe  1993
+- equation: ch3 + ho2 <=> ch4 + o2  # Reaction 35
+  rate-constant: {A: 3.0e+12, b: 0.0, Ea: 0.0}
+  note: Marinov 1995
+- equation: ch3 + o <=> ch2o + h  # Reaction 36
+  rate-constant: {A: 8.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1995
+- equation: ch3 + o2 <=> ch3o + o  # Reaction 37
+  rate-constant: {A: 1.45e+13, b: 0.0, Ea: 2.9209e+04}
+  note: Klatt 1991
+- equation: ch3 + o2 <=> ch2o + oh  # Reaction 38
+  rate-constant: {A: 2.51e+11, b: 0.0, Ea: 1.464e+04}
+  note: Marinov 1995
+- equation: ch3o + h <=> ch3 + oh  # Reaction 39
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: ch2oh + h <=> ch3 + oh  # Reaction 40
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: ch3 + oh <=> ch2(s) + h2o  # Reaction 41
+  rate-constant: {A: 2.0e+13, b: 0.0, Ea: 550.0}
+  note: Pilling 1997
+- equation: ch3 + oh <=> hcoh + h2  # Reaction 42
+  rate-constant: {A: 1.0e+10, b: 0.0, Ea: -415.0}
+  note: Pilling 1997
+- equation: ch3 + oh <=> ch2 + h2o  # Reaction 43
+  rate-constant: {A: 3.0e+06, b: 2.0, Ea: 2500.0}
+  note: Marinov 1996
+- equation: ch3 + h <=> ch2 + h2  # Reaction 44
+  rate-constant: {A: 9.0e+13, b: 0.0, Ea: 1.51e+04}
+  note: Miller 1992
+- equation: ch3 + M <=> ch + h2 + M  # Reaction 45
+  type: three-body
+  rate-constant: {A: 6.9e+14, b: 0.0, Ea: 8.2469e+04}
+  note: Markus 1992
+- equation: ch3 + M <=> ch2 + h + M  # Reaction 46
+  type: three-body
+  rate-constant: {A: 1.9e+16, b: 0.0, Ea: 9.1411e+04}
+  note: Markus 1992
+- equation: ch3 + oh (+M) <=> ch3oh (+M)  # Reaction 47
+  type: falloff
+  low-P-rate-constant: {A: 8.84e+41, b: -7.4, Ea: 626.0}
+  high-P-rate-constant: {A: 8.7e+13, b: 0.1, Ea: 0.0}
+  Troe: {A: 0.025, T3: 1.0e-15, T1: 8000.0, T2: 3000.0}
+  efficiencies: {h2o: 10.0, h2: 2.0, co2: 3.0, co: 2.0}
+  note: Fagerstrom 1993
+- equation: ch3oh (+M) <=> ch2(s) + h2o (+M)  # Reaction 48
+  type: falloff
+  low-P-rate-constant: {A: 1.78e+49, b: -8.81, Ea: 9.3369e+04}
+  high-P-rate-constant: {A: 2.837e+10, b: 1.0, Ea: 8.3871e+04}
+  Troe: {A: 0.9, T3: 740.0, T1: 980.0, T2: 5100.0}
+  efficiencies: {h2o: 10.0, h2: 2.0, co2: 3.0, co: 2.0}
+  note: |-
+    Marinov 1996
+    Marinov 1998
+- equation: ch3oh (+M) <=> hcoh + h2 (+M)  # Reaction 49
+  type: falloff
+  low-P-rate-constant: {A: 5.02e+47, b: -8.402, Ea: 9.4823e+04}
+  high-P-rate-constant: {A: 4.2e+09, b: 1.12, Ea: 8.5604e+04}
+  Troe: {A: 0.9, T3: 615.0, T1: 915.0, T2: 4615.0}
+  efficiencies: {h2o: 10.0, h2: 2.0, co2: 3.0, co: 2.0}
+  note: Marinov 1998
+- equation: ch3oh (+M) <=> ch2o + h2 (+M)  # Reaction 50
+  type: falloff
+  low-P-rate-constant: {A: 9.784e+47, b: -8.4, Ea: 1.01761e+05}
+  high-P-rate-constant: {A: 2.03e+09, b: 1.0, Ea: 9.1443e+04}
+  Troe: {A: 0.9, T3: 825.0, T1: 1125.0, T2: 5700.0}
+  efficiencies: {h2o: 10.0, h2: 2.0, co2: 3.0, co: 2.0}
+  note: Marinov 1998
+- equation: ch3oh + oh <=> ch2oh + h2o  # Reaction 51
+  rate-constant: {A: 2.61e+05, b: 2.182, Ea: -1344.0}
+  note: Tsang  1987
+- equation: ch3oh + oh <=> ch3o + h2o  # Reaction 52
+  rate-constant: {A: 2.62e+06, b: 2.056, Ea: 916.0}
+  note: Tsang  1987
+- equation: ch3oh + o <=> ch2oh + oh  # Reaction 53
+  rate-constant: {A: 3.88e+05, b: 2.5, Ea: 3080.0}
+  note: Tsang  1987
+- equation: ch3oh + h <=> ch2oh + h2  # Reaction 54
+  rate-constant: {A: 1.7e+07, b: 2.1, Ea: 4868.0}
+  note: Tsang  1987
+- equation: ch3oh + h <=> ch3o + h2  # Reaction 55
+  rate-constant: {A: 4.24e+06, b: 2.1, Ea: 4868.0}
+  note: Tsang  1987
+- equation: ch3oh + ch3 <=> ch2oh + ch4  # Reaction 56
+  rate-constant: {A: 31.9, b: 3.17, Ea: 7171.0}
+  note: Tsang  1987
+- equation: ch3oh + ch3 <=> ch3o + ch4  # Reaction 57
+  rate-constant: {A: 14.5, b: 3.1, Ea: 6935.0}
+  note: Tsang  1987
+- equation: ch3oh + ho2 <=> ch2oh + h2o2  # Reaction 58
+  rate-constant: {A: 9.64e+10, b: 0.0, Ea: 1.2578e+04}
+  note: Tsang  1987
+- equation: ch2o + h (+M) <=> ch3o (+M)  # Reaction 59
+  type: falloff
+  low-P-rate-constant: {A: 1.5e+30, b: -4.8, Ea: 5560.0}
+  high-P-rate-constant: {A: 5.4e+11, b: 0.454, Ea: 2600.0}
+  Troe: {A: 0.758, T3: 94.0, T1: 1555.0, T2: 4200.0}
+  efficiencies: {h2o: 5.0}
+  note: GRI-Mech2.11
+- equation: ch2o + h (+M) <=> ch2oh (+M)  # Reaction 60
+  type: falloff
+  low-P-rate-constant: {A: 9.1e+31, b: -4.82, Ea: 6530.0}
+  high-P-rate-constant: {A: 5.4e+11, b: 0.454, Ea: 3600.0}
+  Troe: {A: 0.7187, T3: 103.0, T1: 1291.0, T2: 4160.0}
+  efficiencies: {h2o: 5.0}
+  note: GRI-Mech2.11
+- equation: ch3o + ch3 <=> ch2o + ch4  # Reaction 61
+  rate-constant: {A: 1.2e+13, b: 0.0, Ea: 0.0}
+  note: Tsang  1986
+- equation: ch3o + h <=> ch2o + h2  # Reaction 62
+  rate-constant: {A: 2.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch2oh + h <=> ch2o + h2  # Reaction 63
+  rate-constant: {A: 2.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch3o + oh <=> ch2o + h2o  # Reaction 64
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch2oh + oh <=> ch2o + h2o  # Reaction 65
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch3o + o <=> ch2o + oh  # Reaction 66
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch2oh + o <=> ch2o + oh  # Reaction 67
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch3o + o2 <=> ch2o + ho2  # Reaction 68
+  rate-constant: {A: 6.3e+10, b: 0.0, Ea: 2600.0}
+  note: Miller 1992
+- equation: ch3o + co <=> ch3 + co2  # Reaction 69
+  rate-constant: {A: 468.0, b: 3.16, Ea: 5380.0}
+  note: Wantuck 1987
+- equation: ch2oh + o2 <=> ch2o + ho2  # Reaction 70
+  duplicate: true
+  rate-constant: {A: 1.57e+15, b: -1.0, Ea: 0.0}
+  note: Baulch 1992
+- equation: ch2oh + o2 <=> ch2o + ho2  # Reaction 71
+  duplicate: true
+  rate-constant: {A: 7.23e+13, b: 0.0, Ea: 3577.0}
+  note: Baulch 1992
+- equation: hcoh + oh <=> hco + h2o  # Reaction 72
+  rate-constant: {A: 2.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1996
+- equation: hcoh + h <=> ch2o + h  # Reaction 73
+  rate-constant: {A: 2.0e+14, b: 0.0, Ea: 0.0}
+  note: Marinov 1996
+- equation: hcoh + o <=> co + oh + h  # Reaction 74
+  rate-constant: {A: 8.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1996
+- equation: hcoh + o2 <=> co + oh + oh  # Reaction 75
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: hcoh + o2 <=> co2 + h2o  # Reaction 76
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: hcoh <=> ch2o  # Reaction 77
+  rate-constant: {A: 2.1e+19, b: -3.07, Ea: 3.17e+04}
+  note: Marinov 1998
+- equation: ch2 + h <=> ch + h2  # Reaction 78
+  rate-constant: {A: 1.0e+18, b: -1.56, Ea: 0.0}
+  note: Miller 1992
+- equation: ch2 + oh <=> ch + h2o  # Reaction 79
+  rate-constant: {A: 1.13e+07, b: 2.0, Ea: 3000.0}
+  note: Miller 1992
+- equation: ch2 + oh <=> ch2o + h  # Reaction 80
+  rate-constant: {A: 2.5e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch2 + co2 <=> ch2o + co  # Reaction 81
+  rate-constant: {A: 1.1e+11, b: 0.0, Ea: 1000.0}
+  note: Miller 1992
+- equation: ch2 + o <=> co + h + h  # Reaction 82
+  rate-constant: {A: 5.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch2 + o <=> co + h2  # Reaction 83
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch2 + o2 <=> ch2o + o  # Reaction 84
+  rate-constant: {A: 3.29e+21, b: -3.3, Ea: 2868.0}
+  note: Marinov 1996
+- equation: ch2 + o2 <=> co2 + h + h  # Reaction 85
+  rate-constant: {A: 3.29e+21, b: -3.3, Ea: 2868.0}
+  note: Marinov 1996
+- equation: ch2 + o2 <=> co2 + h2  # Reaction 86
+  rate-constant: {A: 1.01e+21, b: -3.3, Ea: 1508.0}
+  note: Marinov 1996
+- equation: ch2 + o2 <=> co + h2o  # Reaction 87
+  rate-constant: {A: 7.28e+19, b: -2.54, Ea: 1809.0}
+  note: Marinov 1996
+- equation: ch2 + o2 <=> hco + oh  # Reaction 88
+  rate-constant: {A: 1.29e+20, b: -3.3, Ea: 284.0}
+  note: Marinov 1996
+- equation: ch2 + ch3 <=> c2h4 + h  # Reaction 89
+  rate-constant: {A: 4.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch2 + ch2 <=> c2h2 + h + h  # Reaction 90
+  rate-constant: {A: 4.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch2 + hcco <=> c2h3 + co  # Reaction 91
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch2 + c2h2 <=> h2ccch + h  # Reaction 92
+  rate-constant: {A: 1.2e+13, b: 0.0, Ea: 6600.0}
+  note: Miller 1992
+- equation: ch2(s) + M <=> ch2 + M  # Reaction 93
+  type: three-body
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 0.0}
+  efficiencies: {h: 12.0, c2h2: 4.0, h2o: 3.0}
+  note: Miller 1992
+- equation: ch2(s) + ch4 <=> ch3 + ch3  # Reaction 94
+  rate-constant: {A: 4.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch2(s) + c2h6 <=> ch3 + c2h5  # Reaction 95
+  rate-constant: {A: 1.2e+14, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch2(s) + o2 <=> co + oh + h  # Reaction 96
+  rate-constant: {A: 7.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch2(s) + h2 <=> ch3 + h  # Reaction 97
+  rate-constant: {A: 7.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch2(s) + c2h2 <=> h2ccch + h  # Reaction 98
+  rate-constant: {A: 1.5e+14, b: 0.0, Ea: 0.0}
+  note: Canosa-Mas85
+- equation: ch2(s) + c2h4 <=> ac3h5 + h  # Reaction 99
+  rate-constant: {A: 1.3e+14, b: 0.0, Ea: 0.0}
+  note: Canosa-Mas85
+- equation: ch2(s) + o <=> co + h + h  # Reaction 100
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch2(s) + oh <=> ch2o + h  # Reaction 101
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch2(s) + h <=> ch + h2  # Reaction 102
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch2(s) + co2 <=> ch2o + co  # Reaction 103
+  rate-constant: {A: 3.0e+12, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch2(s) + ch3 <=> c2h4 + h  # Reaction 104
+  rate-constant: {A: 2.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch2(s) + ch2co <=> c2h4 + co  # Reaction 105
+  rate-constant: {A: 1.6e+14, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch + o2 <=> hco + o  # Reaction 106
+  rate-constant: {A: 3.3e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch + o <=> co + h  # Reaction 107
+  rate-constant: {A: 5.7e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch + oh <=> hco + h  # Reaction 108
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch + co2 <=> hco + co  # Reaction 109
+  rate-constant: {A: 3.4e+12, b: 0.0, Ea: 690.0}
+  note: Miller 1992
+- equation: ch + h2o <=> ch2o + h  # Reaction 110
+  rate-constant: {A: 1.17e+15, b: -0.75, Ea: 0.0}
+  note: Miller 1992
+- equation: ch + ch2o <=> ch2co + h  # Reaction 111
+  rate-constant: {A: 9.46e+13, b: 0.0, Ea: -515.0}
+  note: Miller 1992
+- equation: ch + c2h2 <=> c3h2 + h  # Reaction 112
+  rate-constant: {A: 1.0e+14, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch + ch2 <=> c2h2 + h  # Reaction 113
+  rate-constant: {A: 4.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch + ch3 <=> c2h3 + h  # Reaction 114
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: ch + ch4 <=> c2h4 + h  # Reaction 115
+  rate-constant: {A: 6.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: hcooh + M <=> co + h2o + M  # Reaction 116
+  type: three-body
+  rate-constant: {A: 2.09e+14, b: 0.0, Ea: 4.04e+04}
+  note: Saito 1984
+- equation: hcooh + M <=> co2 + h2 + M  # Reaction 117
+  type: three-body
+  rate-constant: {A: 1.35e+15, b: 0.0, Ea: 6.06e+04}
+  note: Saito 1984
+- equation: hcooh + oh <=> co2 + h2o + h  # Reaction 118
+  rate-constant: {A: 2.62e+06, b: 2.056, Ea: 916.0}
+  note: Marinov 1998
+- equation: hcooh + oh <=> co + h2o + oh  # Reaction 119
+  rate-constant: {A: 1.85e+07, b: 1.5, Ea: -962.0}
+  note: Marinov 1998
+- equation: hcooh + h <=> co2 + h2 + h  # Reaction 120
+  rate-constant: {A: 4.24e+06, b: 2.1, Ea: 4868.0}
+  note: Marinov 1998
+- equation: hcooh + h <=> co + h2 + oh  # Reaction 121
+  rate-constant: {A: 6.06e+13, b: -0.35, Ea: 2988.0}
+  note: Marinov 1998
+- equation: hcooh + ch3 <=> ch4 + co + oh  # Reaction 122
+  rate-constant: {A: 3.9e-07, b: 5.8, Ea: 2200.0}
+  note: Marinov 1998
+- equation: hcooh + ho2 <=> co + h2o2 + oh  # Reaction 123
+  rate-constant: {A: 2.4e+19, b: -2.2, Ea: 1.403e+04}
+  note: Marinov 1998
+- equation: hcooh + o <=> co + oh + oh  # Reaction 124
+  rate-constant: {A: 1.77e+18, b: -1.9, Ea: 2975.0}
+  note: Marinov 1998
+- equation: ch2o + oh <=> hco + h2o  # Reaction 125
+  rate-constant: {A: 3.43e+09, b: 1.18, Ea: -447.0}
+  note: Tsang  1986
+- equation: ch2o + h <=> hco + h2  # Reaction 126
+  rate-constant: {A: 2.19e+08, b: 1.77, Ea: 3000.0}
+  note: Miller 1992
+- equation: ch2o + M <=> hco + h + M  # Reaction 127
+  type: three-body
+  rate-constant: {A: 3.31e+16, b: 0.0, Ea: 8.1e+04}
+  note: Miller 1992
+- equation: ch2o + o <=> hco + oh  # Reaction 128
+  rate-constant: {A: 1.8e+13, b: 0.0, Ea: 3080.0}
+  note: Miller 1992
+- equation: hco + o2 <=> co + ho2  # Reaction 129
+  rate-constant: {A: 7.58e+12, b: 0.0, Ea: 410.0}
+  note: Timonen 1988
+- equation: hco + M <=> h + co + M  # Reaction 130
+  type: three-body
+  rate-constant: {A: 1.86e+17, b: -1.0, Ea: 1.7e+04}
+  efficiencies: {h2o: 5.0, h2: 1.87, co2: 3.0, co: 1.87, ch4: 2.81}
+  note: Timonen 1987
+- equation: hco + oh <=> h2o + co  # Reaction 131
+  rate-constant: {A: 1.0e+14, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: hco + h <=> co + h2  # Reaction 132
+  rate-constant: {A: 1.19e+13, b: 0.25, Ea: 0.0}
+  note: Miller 1992
+- equation: hco + o <=> co + oh  # Reaction 133
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: hco + o <=> co2 + h  # Reaction 134
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: co + oh <=> co2 + h  # Reaction 135
+  rate-constant: {A: 9420.0, b: 2.25, Ea: -2351.0}
+  note: Marinov 1996
+- equation: co + o + M <=> co2 + M  # Reaction 136
+  type: three-body
+  rate-constant: {A: 6.17e+14, b: 0.0, Ea: 3000.0}
+  note: Miller 1992
+- equation: co + o2 <=> co2 + o  # Reaction 137
+  rate-constant: {A: 2.53e+12, b: 0.0, Ea: 4.7688e+04}
+  note: Miller 1992
+- equation: co + ho2 <=> co2 + oh  # Reaction 138
+  rate-constant: {A: 5.8e+13, b: 0.0, Ea: 2.2934e+04}
+  note: Miller 1992
+- equation: c2h5oh (+M) <=> ch3 + ch2oh (+M)  # Reaction 139
+  type: falloff
+  low-P-rate-constant: {A: 2.88e+85, b: -18.9, Ea: 1.09914e+05}
+  high-P-rate-constant: {A: 5.94e+23, b: -1.68, Ea: 9.1163e+04}
+  Troe: {A: 0.5, T3: 200.0, T1: 890.0, T2: 4600.0}
+  efficiencies: {h2o: 5.0, h2: 2.0, co2: 3.0, co: 2.0}
+  note: Marinov 1998
+- equation: c2h5oh (+M) <=> c2h5 + oh (+M)  # Reaction 140
+  type: falloff
+  low-P-rate-constant: {A: 3.252e+85, b: -18.81, Ea: 1.1493e+05}
+  high-P-rate-constant: {A: 1.25e+23, b: -1.54, Ea: 9.6005e+04}
+  Troe: {A: 0.5, T3: 300.0, T1: 900.0, T2: 5000.0}
+  efficiencies: {h2o: 5.0, h2: 2.0, co2: 3.0, co: 2.0}
+  note: Marinov 1998
+- equation: c2h5oh (+M) <=> c2h4 + h2o (+M)  # Reaction 141
+  type: falloff
+  low-P-rate-constant: {A: 2.57e+83, b: -18.85, Ea: 8.6452e+04}
+  high-P-rate-constant: {A: 2.79e+13, b: 0.09, Ea: 6.6136e+04}
+  Troe: {A: 0.7, T3: 350.0, T1: 800.0, T2: 3800.0}
+  efficiencies: {h2o: 5.0}
+  note: Marinov 1998
+- equation: c2h5oh (+M) <=> ch3hco + h2 (+M)  # Reaction 142
+  type: falloff
+  low-P-rate-constant: {A: 4.46e+87, b: -19.42, Ea: 1.15586e+05}
+  high-P-rate-constant: {A: 7.24e+11, b: 0.095, Ea: 9.1007e+04}
+  Troe: {A: 0.9, T3: 900.0, T1: 1100.0, T2: 3500.0}
+  efficiencies: {h2o: 5.0}
+  note: Marinov 1998
+- equation: c2h5oh + oh <=> c2h4oh + h2o  # Reaction 143
+  rate-constant: {A: 1.74e+11, b: 0.27, Ea: 600.0}
+  note: Marinov 1998
+- equation: c2h5oh + oh <=> ch3choh + h2o  # Reaction 144
+  rate-constant: {A: 4.64e+11, b: 0.15, Ea: 0.0}
+  note: Marinov 1998
+- equation: c2h5oh + oh <=> ch3ch2o + h2o  # Reaction 145
+  rate-constant: {A: 7.46e+11, b: 0.3, Ea: 1634.0}
+  note: Marinov 1998
+- equation: c2h5oh + h <=> c2h4oh + h2  # Reaction 146
+  rate-constant: {A: 1.23e+07, b: 1.8, Ea: 5098.0}
+  note: Marinov 1998
+- equation: c2h5oh + h <=> ch3choh + h2  # Reaction 147
+  rate-constant: {A: 2.58e+07, b: 1.65, Ea: 2827.0}
+  note: Marinov 1998
+- equation: c2h5oh + h <=> ch3ch2o + h2  # Reaction 148
+  rate-constant: {A: 1.5e+07, b: 1.6, Ea: 3038.0}
+  note: Marinov 1998
+- equation: c2h5oh + o <=> c2h4oh + oh  # Reaction 149
+  rate-constant: {A: 9.41e+07, b: 1.7, Ea: 5459.0}
+  note: Marinov 1998
+- equation: c2h5oh + o <=> ch3choh + oh  # Reaction 150
+  rate-constant: {A: 1.88e+07, b: 1.85, Ea: 1824.0}
+  note: Marinov 1998
+- equation: c2h5oh + o <=> ch3ch2o + oh  # Reaction 151
+  rate-constant: {A: 1.58e+07, b: 2.0, Ea: 4448.0}
+  note: Marinov 1998
+- equation: c2h5oh + ch3 <=> c2h4oh + ch4  # Reaction 152
+  rate-constant: {A: 219.0, b: 3.18, Ea: 9622.0}
+  note: Marinov 1998
+- equation: c2h5oh + ch3 <=> ch3choh + ch4  # Reaction 153
+  rate-constant: {A: 728.0, b: 2.99, Ea: 7948.0}
+  note: Marinov 1998
+- equation: c2h5oh + ch3 <=> ch3ch2o + ch4  # Reaction 154
+  rate-constant: {A: 145.0, b: 2.99, Ea: 7649.0}
+  note: Marinov 1998
+- equation: c2h5oh + ho2 <=> ch3choh + h2o2  # Reaction 155
+  rate-constant: {A: 8200.0, b: 2.55, Ea: 1.075e+04}
+  note: Marinov 1998
+- equation: c2h5oh + ho2 <=> c2h4oh + h2o2  # Reaction 156
+  rate-constant: {A: 1.23e+04, b: 2.55, Ea: 1.575e+04}
+  note: Marinov 1998
+- equation: c2h5oh + ho2 <=> ch3ch2o + h2o2  # Reaction 157
+  rate-constant: {A: 2.5e+12, b: 0.0, Ea: 2.4e+04}
+  note: Marinov 1998
+- equation: ch3ch2o + M <=> ch3hco + h + M  # Reaction 158
+  type: three-body
+  rate-constant: {A: 1.16e+35, b: -5.89, Ea: 2.5274e+04}
+  note: Marinov 1998
+- equation: ch3ch2o + M <=> ch3 + ch2o + M  # Reaction 159
+  type: three-body
+  rate-constant: {A: 1.35e+38, b: -6.96, Ea: 2.38e+04}
+  note: Marinov 1998
+- equation: ch3ch2o + o2 <=> ch3hco + ho2  # Reaction 160
+  rate-constant: {A: 4.0e+10, b: 0.0, Ea: 1100.0}
+  note: Hartmann 1990
+- equation: ch3ch2o + co <=> c2h5 + co2  # Reaction 161
+  rate-constant: {A: 468.0, b: 3.16, Ea: 5380.0}
+  note: Marinov 1998
+- equation: ch3ch2o + h <=> ch3 + ch2oh  # Reaction 162
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: ch3ch2o + h <=> c2h4 + h2o  # Reaction 163
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: ch3ch2o + oh <=> ch3hco + h2o  # Reaction 164
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: ch3choh + o2 <=> ch3hco + ho2  # Reaction 165
+  duplicate: true
+  rate-constant: {A: 4.82e+14, b: 0.0, Ea: 5017.0}
+  note: Marinov 1998
+- equation: ch3choh + o2 <=> ch3hco + ho2  # Reaction 166
+  duplicate: true
+  rate-constant: {A: 8.43e+15, b: -1.2, Ea: 0.0}
+  note: Marinov 1998
+- equation: ch3choh + ch3 <=> c3h6 + h2o  # Reaction 167
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: ch3choh + o <=> ch3hco + oh  # Reaction 168
+  rate-constant: {A: 1.0e+14, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: ch3choh + h <=> c2h4 + h2o  # Reaction 169
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: ch3choh + h <=> ch3 + ch2oh  # Reaction 170
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: ch3choh + ho2 <=> ch3hco + oh + oh  # Reaction 171
+  rate-constant: {A: 4.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: ch3choh + oh <=> ch3hco + h2o  # Reaction 172
+  rate-constant: {A: 5.0e+12, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: ch3choh + M <=> ch3hco + h + M  # Reaction 173
+  type: three-body
+  rate-constant: {A: 1.0e+14, b: 0.0, Ea: 2.5e+04}
+  note: Marinov 1998
+- equation: ch3hco + oh <=> ch3co + h2o  # Reaction 174
+  rate-constant: {A: 9.24e+06, b: 1.5, Ea: -962.0}
+  note: Taylor 1996
+- equation: ch3hco + oh <=> ch2hco + h2o  # Reaction 175
+  rate-constant: {A: 1.72e+05, b: 2.4, Ea: 815.0}
+  note: Taylor 1996
+- equation: ch3hco + oh <=> ch3 + hcooh  # Reaction 176
+  rate-constant: {A: 3.0e+15, b: -1.076, Ea: 0.0}
+  note: Marinov 1998
+- equation: ch3hco + o <=> ch3co + oh  # Reaction 177
+  rate-constant: {A: 1.77e+18, b: -1.9, Ea: 2975.0}
+  note: Marinov 1998
+- equation: ch3hco + o <=> ch2hco + oh  # Reaction 178
+  rate-constant: {A: 3.72e+13, b: -0.2, Ea: 3556.0}
+  note: Marinov 1998
+- equation: ch3hco + h <=> ch3co + h2  # Reaction 179
+  rate-constant: {A: 4.66e+13, b: -0.35, Ea: 2988.0}
+  note: Marinov 1998
+- equation: ch3hco + h <=> ch2hco + h2  # Reaction 180
+  rate-constant: {A: 1.85e+12, b: 0.4, Ea: 5359.0}
+  note: Marinov 1998
+- equation: ch3hco + ch3 <=> ch3co + ch4  # Reaction 181
+  rate-constant: {A: 3.9e-07, b: 5.8, Ea: 2200.0}
+  note: Marinov 1998
+- equation: ch3hco + ch3 <=> ch2hco + ch4  # Reaction 182
+  rate-constant: {A: 24.5, b: 3.15, Ea: 5727.0}
+  note: Marinov 1998
+- equation: ch3hco + ho2 <=> ch3co + h2o2  # Reaction 183
+  rate-constant: {A: 2.4e+19, b: -2.2, Ea: 1.403e+04}
+  note: Marinov 1998
+- equation: ch3hco + ho2 <=> ch2hco + h2o2  # Reaction 184
+  rate-constant: {A: 2.32e+11, b: 0.4, Ea: 1.4864e+04}
+  note: Marinov 1998
+- equation: ch3hco + o2 <=> ch3co + ho2  # Reaction 185
+  rate-constant: {A: 1.0e+14, b: 0.0, Ea: 4.22e+04}
+  note: xxxxx
+- equation: c2h6 + ch3 <=> c2h5 + ch4  # Reaction 186
+  rate-constant: {A: 0.55, b: 4.0, Ea: 8300.0}
+  note: Miller 1992
+- equation: c2h6 + h <=> c2h5 + h2  # Reaction 187
+  rate-constant: {A: 540.0, b: 3.5, Ea: 5210.0}
+  note: Miller 1992
+- equation: c2h6 + o <=> c2h5 + oh  # Reaction 188
+  rate-constant: {A: 3.0e+07, b: 2.0, Ea: 5115.0}
+  note: Miller 1992
+- equation: c2h6 + oh <=> c2h5 + h2o  # Reaction 189
+  rate-constant: {A: 7.23e+06, b: 2.0, Ea: 864.0}
+  note: Baulch 1992
+- equation: c2h5 + h <=> c2h4 + h2  # Reaction 190
+  rate-constant: {A: 1.25e+14, b: 0.0, Ea: 8000.0}
+  note: Marinov 1995
+- equation: c2h5 + h <=> ch3 + ch3  # Reaction 191
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Warnatz 1984
+- equation: c2h5 + h <=> c2h6  # Reaction 192
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: c2h5 + oh <=> c2h4 + h2o  # Reaction 193
+  rate-constant: {A: 4.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1995
+- equation: c2h5 + o <=> ch3 + ch2o  # Reaction 194
+  rate-constant: {A: 1.0e+14, b: 0.0, Ea: 0.0}
+  note: Herron 1988
+- equation: c2h5 + ho2 <=> c2h6 + o2  # Reaction 195
+  rate-constant: {A: 3.0e+12, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: c2h5 + ho2 <=> ch3ch2o + oh  # Reaction 196
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Tsang 1986
+- equation: c2h5 + o2 <=> c2h4 + ho2  # Reaction 197
+  rate-constant: {A: 2.89e+28, b: -5.4, Ea: 7585.0}
+  note: Marinov 1998
+- equation: c2h5 + o2 <=> ch3hco + oh  # Reaction 198
+  rate-constant: {A: 4.9e+11, b: -0.48, Ea: 8357.0}
+  note: Marinov 1998
+- equation: c2h4 + oh <=> c2h4oh  # Reaction 199
+  rate-constant: {A: 1.29e+12, b: 0.0, Ea: -817.0}
+  note: Atkinson 1986
+- equation: c2h4oh + o2 <=> hoc2h4o2  # Reaction 200
+  rate-constant: {A: 1.0e+12, b: 0.0, Ea: -1100.0}
+  note: Marinov 1998
+- equation: hoc2h4o2 <=> ch2o + ch2o + oh  # Reaction 201
+  rate-constant: {A: 6.0e+10, b: 0.0, Ea: 2.45e+04}
+  note: Marinov 1998
+- equation: c2h4 + oh <=> c2h3 + h2o  # Reaction 202
+  rate-constant: {A: 2.02e+13, b: 0.0, Ea: 5936.0}
+  note: Miller 1992
+- equation: c2h4 + o <=> ch3 + hco  # Reaction 203
+  rate-constant: {A: 1.02e+07, b: 1.88, Ea: 179.0}
+  note: Baulch 1994
+- equation: c2h4 + o <=> ch2hco + h  # Reaction 204
+  rate-constant: {A: 3.39e+06, b: 1.88, Ea: 179.0}
+  note: Baulch 1994
+- equation: c2h4 + ch3 <=> c2h3 + ch4  # Reaction 205
+  rate-constant: {A: 6.62, b: 3.7, Ea: 9500.0}
+  note: Marinov 1995
+- equation: c2h4 + h <=> c2h3 + h2  # Reaction 206
+  rate-constant: {A: 3.36e-07, b: 6.0, Ea: 1692.0}
+  note: Dagaut 1990
+- equation: c2h4 + h (+M) <=> c2h5 (+M)  # Reaction 207
+  type: falloff
+  low-P-rate-constant: {A: 1.112e+34, b: -5.0, Ea: 4448.0}
+  high-P-rate-constant: {A: 1.08e+12, b: 0.454, Ea: 1822.0}
+  Troe: {A: 1.0, T3: 1.0e-15, T1: 95.0, T2: 200.0}
+  efficiencies: {h2o: 5.0, h2: 2.0, co2: 3.0, co: 2.0}
+  note: Feng  1993
+- equation: c2h4 (+M) <=> c2h2 + h2 (+M)  # Reaction 208
+  type: falloff
+  low-P-rate-constant: {A: 1.5e+15, b: 0.0, Ea: 5.5443e+04}
+  high-P-rate-constant: {A: 1.8e+14, b: 0.0, Ea: 8.7e+04}
+  note: |-
+    Marinov 1996
+    Marinov 1997
+- equation: c2h3 + h (+M) <=> c2h4 (+M)  # Reaction 209
+  type: falloff
+  low-P-rate-constant: {A: 9.8e+29, b: -3.86, Ea: 3320.0}
+  high-P-rate-constant: {A: 6.1e+12, b: 0.27, Ea: 280.0}
+  Troe: {A: 0.782, T3: 208.0, T1: 2663.0, T2: 6095.0}
+  efficiencies: {h2o: 5.0}
+  note: GRI-Mech2.11
+- equation: c2h3 + h <=> c2h2 + h2  # Reaction 210
+  rate-constant: {A: 9.0e+13, b: 0.0, Ea: 0.0}
+  note: Tsang 1986
+- equation: c2h3 + o <=> ch2co + h  # Reaction 211
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: c2h3 + o2 <=> ch2o + hco  # Reaction 212
+  rate-constant: {A: 1.7e+29, b: -5.312, Ea: 6500.0}
+  note: Marinov 1997
+- equation: c2h3 + o2 <=> ch2hco + o  # Reaction 213
+  rate-constant: {A: 5.5e+14, b: -0.611, Ea: 5260.0}
+  note: Marinov 1997
+- equation: c2h3 + o2 <=> c2h2 + ho2  # Reaction 214
+  rate-constant: {A: 2.12e-06, b: 6.0, Ea: 9484.0}
+  note: cfm/nmm 1996
+- equation: c2h3 + oh <=> c2h2 + h2o  # Reaction 215
+  rate-constant: {A: 2.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: c2h3 + c2h <=> c2h2 + c2h2  # Reaction 216
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: c2h3 + ch <=> ch2 + c2h2  # Reaction 217
+  rate-constant: {A: 5.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: c2h3 + ch3 <=> ac3h5 + h  # Reaction 218
+  rate-constant: {A: 473.0, b: 3.7, Ea: 5677.0}
+  note: Marinov 1996
+- equation: c2h3 + ch3 <=> c3h6  # Reaction 219
+  rate-constant: {A: 4.46e+56, b: -13.0, Ea: 1.3865e+04}
+  note: Marinov 1996
+- equation: c2h3 + ch3 <=> c2h2 + ch4  # Reaction 220
+  rate-constant: {A: 2.0e+13, b: 0.0, Ea: 0.0}
+  note: Fahr  1991
+- equation: c2h2 + oh <=> c2h + h2o  # Reaction 221
+  rate-constant: {A: 3.37e+07, b: 2.0, Ea: 1.4e+04}
+  note: Miller 1992
+- equation: c2h2 + oh <=> hccoh + h  # Reaction 222
+  rate-constant: {A: 5.04e+05, b: 2.3, Ea: 1.35e+04}
+  note: Miller 1992
+- equation: c2h2 + oh <=> ch2co + h  # Reaction 223
+  duplicate: true
+  rate-constant: {A: 2.18e-04, b: 4.5, Ea: -1000.0}
+  note: Miller 1992
+- equation: c2h2 + oh <=> ch2co + h  # Reaction 224
+  duplicate: true
+  rate-constant: {A: 2.0e+11, b: 0.0, Ea: 0.0}
+  note: Vandooren 1977
+- equation: c2h2 + oh <=> ch3 + co  # Reaction 225
+  rate-constant: {A: 4.83e-04, b: 4.0, Ea: -2000.0}
+  note: Miller 1992
+- equation: hccoh + h <=> ch2co + h  # Reaction 226
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: c2h2 + o <=> ch2 + co  # Reaction 227
+  rate-constant: {A: 6.12e+06, b: 2.0, Ea: 1900.0}
+  note: Marinov 1996
+- equation: c2h2 + o <=> hcco + h  # Reaction 228
+  rate-constant: {A: 1.43e+07, b: 2.0, Ea: 1900.0}
+  note: Marinov 1996
+- equation: c2h2 + o <=> c2h + oh  # Reaction 229
+  rate-constant: {A: 3.16e+15, b: -0.6, Ea: 1.5e+04}
+  note: Miller 1992
+- equation: c2h2 + ch3 <=> c2h + ch4  # Reaction 230
+  rate-constant: {A: 1.81e+11, b: 0.0, Ea: 1.7289e+04}
+  note: Tsang  1986
+- equation: c2h2 + o2 <=> hcco + oh  # Reaction 231
+  rate-constant: {A: 4.0e+07, b: 1.5, Ea: 3.01e+04}
+  note: Marinov 1997
+- equation: c2h2 + M <=> c2h + h + M  # Reaction 232
+  type: three-body
+  rate-constant: {A: 4.2e+16, b: 0.0, Ea: 1.07e+05}
+  note: Miller 1992
+- equation: c2h2 + h (+M) <=> c2h3 (+M)  # Reaction 233
+  type: falloff
+  low-P-rate-constant: {A: 2.25e+40, b: -7.269, Ea: 6577.0}
+  high-P-rate-constant: {A: 3.11e+11, b: 0.58, Ea: 2589.0}
+  Troe: {A: 1.0, T3: 1.0e-15, T1: 675.0, T2: 1.0e+15}
+  efficiencies: {h2o: 5.0, h2: 2.0, co2: 3.0, co: 2.0}
+  note: Knyazev 1995
+- equation: ch2hco + h <=> ch3 + hco  # Reaction 234
+  rate-constant: {A: 5.0e+13, b: 0.0, Ea: 0.0}
+  note: |2-
+     Marinov 1996
+    Marinov 1998
+- equation: ch2hco + h <=> ch2co + h2  # Reaction 235
+  rate-constant: {A: 2.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: ch2hco + o <=> ch2o + hco  # Reaction 236
+  rate-constant: {A: 1.0e+14, b: 0.0, Ea: 0.0}
+  note: Marinov 1996
+- equation: ch2hco + oh <=> ch2co + h2o  # Reaction 237
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1996
+- equation: ch2hco + o2 <=> ch2o + co + oh  # Reaction 238
+  rate-constant: {A: 3.0e+10, b: 0.0, Ea: 0.0}
+  note: Baulch  1992
+- equation: ch2hco + ch3 <=> c2h5 + co + h  # Reaction 239
+  rate-constant: {A: 4.9e+14, b: -0.5, Ea: 0.0}
+  note: Marinov 1998
+- equation: ch2hco + ho2 <=> ch2o + hco + oh  # Reaction 240
+  rate-constant: {A: 7.0e+12, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: ch2hco + ho2 <=> ch3hco + o2  # Reaction 241
+  rate-constant: {A: 3.0e+12, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: ch2hco <=> ch3 + co  # Reaction 242
+  rate-constant: {A: 1.17e+43, b: -9.83, Ea: 4.3756e+04}
+  note: Marinov 1998
+- equation: ch2hco <=> ch2co + h  # Reaction 243
+  rate-constant: {A: 1.81e+43, b: -9.61, Ea: 4.5868e+04}
+  note: Marinov 1998
+- equation: chocho (+M) <=> ch2o + co (+M)  # Reaction 244
+  type: falloff
+  low-P-rate-constant: {A: 8.91e+16, b: 0.0, Ea: 4.92e+04}
+  high-P-rate-constant: {A: 4.27e+12, b: 0.0, Ea: 5.06e+04}
+  note: Marinov 1995
+- equation: chocho <=> co + co + h2  # Reaction 245
+  rate-constant: {A: 4.07e+42, b: -8.5, Ea: 6.9278e+04}
+  note: |-
+    Marinov 1995
+    Marinov 1996
+- equation: chocho + oh <=> hco + co + h2o  # Reaction 246
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1995
+- equation: chocho + o <=> hco + co + oh  # Reaction 247
+  rate-constant: {A: 7.24e+12, b: 0.0, Ea: 1970.0}
+  note: Marinov 1995
+- equation: chocho + h <=> ch2o + hco  # Reaction 248
+  rate-constant: {A: 1.0e+12, b: 0.0, Ea: 0.0}
+  note: Marinov 1995
+- equation: chocho + ho2 <=> hco + co + h2o2  # Reaction 249
+  rate-constant: {A: 1.7e+12, b: 0.0, Ea: 1.07e+04}
+  note: Marinov 1995
+- equation: chocho + ch3 <=> hco + co + ch4  # Reaction 250
+  rate-constant: {A: 1.74e+12, b: 0.0, Ea: 8440.0}
+  note: Marinov 1995
+- equation: chocho + o2 <=> hco + co + ho2  # Reaction 251
+  rate-constant: {A: 1.0e+14, b: 0.0, Ea: 3.7e+04}
+  note: Marinov 1995
+- equation: ch3co (+M) <=> ch3 + co (+M)  # Reaction 252
+  type: falloff
+  low-P-rate-constant: {A: 1.2e+15, b: 0.0, Ea: 1.2518e+04}
+  high-P-rate-constant: {A: 3.0e+12, b: 0.0, Ea: 1.6722e+04}
+  note: Warnatz 1984
+- equation: ch2co + o <=> co2 + ch2  # Reaction 253
+  rate-constant: {A: 1.75e+12, b: 0.0, Ea: 1350.0}
+  note: |-
+    Warnatz 1984
+    Marinov 1995
+- equation: ch2co + h <=> ch3 + co  # Reaction 254
+  rate-constant: {A: 2.71e+04, b: 2.75, Ea: 714.0}
+  note: Marinov 1996
+- equation: ch2co + h <=> hcco + h2  # Reaction 255
+  rate-constant: {A: 2.0e+14, b: 0.0, Ea: 8000.0}
+  note: Marinov 1996
+- equation: ch2co + o <=> hcco + oh  # Reaction 256
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 8000.0}
+  note: Miller 1992
+- equation: ch2co + oh <=> hcco + h2o  # Reaction 257
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 2000.0}
+  note: Marinov 1996
+- equation: ch2co + oh <=> ch2oh + co  # Reaction 258
+  rate-constant: {A: 3.73e+12, b: 0.0, Ea: -1013.0}
+  note: Brown 1989
+- equation: ch2co (+M) <=> ch2 + co (+M)  # Reaction 259
+  type: falloff
+  low-P-rate-constant: {A: 3.6e+15, b: 0.0, Ea: 5.927e+04}
+  high-P-rate-constant: {A: 3.0e+14, b: 0.0, Ea: 7.098e+04}
+  note: Miller 1992
+- equation: c2h + h2 <=> c2h2 + h  # Reaction 260
+  rate-constant: {A: 4.09e+05, b: 2.39, Ea: 864.3}
+  note: |-
+    Miller 1992
+    Miller 1992
+- equation: c2h + o <=> ch + co  # Reaction 261
+  rate-constant: {A: 5.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: c2h + oh <=> hcco + h  # Reaction 262
+  rate-constant: {A: 2.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: c2h + o2 <=> co + co + h  # Reaction 263
+  rate-constant: {A: 9.04e+12, b: 0.0, Ea: -457.0}
+  note: Opansky 1993
+- equation: hcco + c2h2 <=> h2ccch + co  # Reaction 264
+  rate-constant: {A: 1.0e+11, b: 0.0, Ea: 3000.0}
+  note: Miller 1992
+- equation: hcco + h <=> ch2(s) + co  # Reaction 265
+  rate-constant: {A: 1.0e+14, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: hcco + o <=> h + co + co  # Reaction 266
+  rate-constant: {A: 8.0e+13, b: 0.0, Ea: 0.0}
+  note: Peeters 1995
+- equation: hcco + o <=> ch + co2  # Reaction 267
+  rate-constant: {A: 2.95e+13, b: 0.0, Ea: 1113.0}
+  note: Peeters 1995
+- equation: hcco + o2 <=> hco + co + o  # Reaction 268
+  rate-constant: {A: 2.5e+08, b: 1.0, Ea: 0.0}
+  note: Marinov 1997
+- equation: hcco + o2 <=> co2 + hco  # Reaction 269
+  rate-constant: {A: 2.4e+11, b: 0.0, Ea: -854.0}
+  note: Marinov 1997
+- equation: hcco + ch <=> c2h2 + co  # Reaction 270
+  rate-constant: {A: 5.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: hcco + hcco <=> c2h2 + co + co  # Reaction 271
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: hcco + oh <=> c2o + h2o  # Reaction 272
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: c2o + h <=> ch + co  # Reaction 273
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: c2o + o <=> co + co  # Reaction 274
+  rate-constant: {A: 5.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: c2o + oh <=> co + co + h  # Reaction 275
+  rate-constant: {A: 2.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: c2o + o2 <=> co + co + o  # Reaction 276
+  rate-constant: {A: 2.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: c3h8 (+M) <=> c2h5 + ch3 (+M)  # Reaction 277
+  type: falloff
+  low-P-rate-constant: {A: 7.237e+27, b: -2.88, Ea: 6.7448e+04}
+  high-P-rate-constant: {A: 7.9e+22, b: -1.8, Ea: 8.8629e+04}
+  Troe: {A: 1.0, T3: 1.0e-15, T1: 1500.0, T2: 1.0e+15}
+  efficiencies: {h2o: 5.0, co2: 3.0, co: 2.0, h2: 2.0}
+  note: Tsang 1988
+- equation: ic3h7 + ho2 <=> c3h8 + o2  # Reaction 278
+  rate-constant: {A: 3.0e+12, b: 0.0, Ea: 0.0}
+  note: |2-
+     Al-Alami 1983
+    Marinov 1998
+- equation: nc3h7 + ho2 <=> c3h8 + o2  # Reaction 279
+  rate-constant: {A: 3.0e+12, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: c3h8 + ho2 <=> nc3h7 + h2o2  # Reaction 280
+  rate-constant: {A: 4.76e+04, b: 2.55, Ea: 1.6492e+04}
+  note: Tsang 1988
+- equation: c3h8 + ho2 <=> ic3h7 + h2o2  # Reaction 281
+  rate-constant: {A: 9640.0, b: 2.6, Ea: 1.3909e+04}
+  note: Tsang 1988
+- equation: c3h8 + oh <=> nc3h7 + h2o  # Reaction 282
+  rate-constant: {A: 3.16e+07, b: 1.8, Ea: 934.0}
+  note: Cohen 1991
+- equation: c3h8 + oh <=> ic3h7 + h2o  # Reaction 283
+  rate-constant: {A: 7.08e+06, b: 1.9, Ea: -159.0}
+  note: Cohen 1991
+- equation: c3h8 + o <=> nc3h7 + oh  # Reaction 284
+  rate-constant: {A: 3.73e+06, b: 2.4, Ea: 5504.0}
+  note: Cohen 1986
+- equation: c3h8 + o <=> ic3h7 + oh  # Reaction 285
+  rate-constant: {A: 5.48e+05, b: 2.5, Ea: 3139.0}
+  note: Cohen 1986
+- equation: c3h8 + h <=> ic3h7 + h2  # Reaction 286
+  rate-constant: {A: 1.3e+06, b: 2.4, Ea: 4471.0}
+  note: Tsang 1988
+- equation: c3h8 + h <=> nc3h7 + h2  # Reaction 287
+  rate-constant: {A: 1.33e+06, b: 2.54, Ea: 6756.0}
+  note: Tsang 1988
+- equation: c3h8 + ch3 <=> nc3h7 + ch4  # Reaction 288
+  rate-constant: {A: 0.904, b: 3.65, Ea: 7153.0}
+  note: Tsang 1988
+- equation: c3h8 + ch3 <=> ic3h7 + ch4  # Reaction 289
+  rate-constant: {A: 1.51, b: 3.46, Ea: 5480.0}
+  note: Tsang 1988
+- equation: c3h8 + c2h3 <=> ic3h7 + c2h4  # Reaction 290
+  rate-constant: {A: 1000.0, b: 3.1, Ea: 8830.0}
+  note: Tsang 1988
+- equation: c3h8 + c2h3 <=> nc3h7 + c2h4  # Reaction 291
+  rate-constant: {A: 600.0, b: 3.3, Ea: 1.05e+04}
+  note: Tsang 1988
+- equation: c3h8 + c2h5 <=> ic3h7 + c2h6  # Reaction 292
+  rate-constant: {A: 1.51, b: 3.46, Ea: 7470.0}
+  note: Tsang 1988
+- equation: c3h8 + c2h5 <=> nc3h7 + c2h6  # Reaction 293
+  rate-constant: {A: 0.903, b: 3.65, Ea: 9140.0}
+  note: Tsang 1988
+- equation: c3h8 + ac3h5 <=> c3h6 + nc3h7  # Reaction 294
+  rate-constant: {A: 235.0, b: 3.3, Ea: 1.9842e+04}
+  note: Tsang 1988
+- equation: c3h8 + ac3h5 <=> c3h6 + ic3h7  # Reaction 295
+  rate-constant: {A: 78.3, b: 3.3, Ea: 1.8169e+04}
+  note: Tsang 1988
+- equation: nc3h7 (+M) <=> c2h4 + ch3 (+M)  # Reaction 296
+  type: falloff
+  low-P-rate-constant: {A: 5.485e+49, b: -10.0, Ea: 3.5766e+04}
+  high-P-rate-constant: {A: 1.23e+13, b: -0.1, Ea: 3.0202e+04}
+  Troe: {A: 2.17, T3: 1.0e-15, T1: 251.0, T2: 1185.0}
+  efficiencies: {h2o: 5.0, h2: 2.0, co2: 3.0, co: 2.0}
+  note: Bencsura 1992
+- equation: c3h6 + h (+M) <=> ic3h7 (+M)  # Reaction 297
+  type: falloff
+  low-P-rate-constant: {A: 1.64e+54, b: -11.1, Ea: 9364.0}
+  high-P-rate-constant: {A: 5.7e+09, b: 1.16, Ea: 874.0}
+  Troe: {A: 1.0, T3: 1.0e-15, T1: 260.0, T2: 3000.0}
+  efficiencies: {h2o: 5.0, h2: 2.0, co2: 3.0, co: 2.0}
+  note: |-
+    Bencsura 1992
+    Seakins 1993
+- equation: ic3h7 + o2 <=> c3h6 + ho2  # Reaction 298
+  rate-constant: {A: 1.88e+20, b: -2.69, Ea: 7109.0}
+  note: |-
+    Marinov 1996
+    Marinov 1998
+- equation: nc3h7 + o2 <=> c3h6 + ho2  # Reaction 299
+  rate-constant: {A: 3.83e+26, b: -4.44, Ea: 7724.0}
+  note: Marinov 1998
+- equation: ic3h7 + h <=> c2h5 + ch3  # Reaction 300
+  rate-constant: {A: 5.0e+13, b: 0.0, Ea: 0.0}
+  note: Tsang 1988
+- equation: nc3h7 + h <=> c2h5 + ch3  # Reaction 301
+  rate-constant: {A: 1.0e+14, b: 0.0, Ea: 0.0}
+  note: Tsang 1988
+- equation: c3h6 <=> c2h2 + ch4  # Reaction 302
+  rate-constant: {A: 2.5e+12, b: 0.0, Ea: 7.0e+04}
+  note: Hidaka 1992
+- equation: c3h6 <=> ac3h4 + h2  # Reaction 303
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 8.0e+04}
+  note: Hidaka 1992
+- equation: pc3h5 + h <=> c3h6  # Reaction 304
+  rate-constant: {A: 1.0e+14, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: sc3h5 + h <=> c3h6  # Reaction 305
+  rate-constant: {A: 1.0e+14, b: 0.0, Ea: 0.0}
+  note: Marinov 1998
+- equation: c3h6 + ho2 <=> ac3h5 + h2o2  # Reaction 306
+  rate-constant: {A: 9640.0, b: 2.6, Ea: 1.391e+04}
+  note: Tsang 1991
+- equation: c3h6 + oh <=> ac3h5 + h2o  # Reaction 307
+  rate-constant: {A: 3.12e+06, b: 2.0, Ea: -298.0}
+  note: Tsang 1991
+- equation: c3h6 + oh <=> sc3h5 + h2o  # Reaction 308
+  rate-constant: {A: 1.11e+06, b: 2.0, Ea: 1451.0}
+  note: Tsang 1991
+- equation: c3h6 + oh <=> pc3h5 + h2o  # Reaction 309
+  rate-constant: {A: 2.11e+06, b: 2.0, Ea: 2778.0}
+  note: Tsang 1991
+- equation: c3h6 + o <=> ch3chco + h + h  # Reaction 310
+  rate-constant: {A: 5.01e+07, b: 1.76, Ea: 76.0}
+  note: Tsang 1991
+- equation: c3h6 + o <=> c2h5 + hco  # Reaction 311
+  rate-constant: {A: 1.58e+07, b: 1.76, Ea: -1216.0}
+  note: Tsang 1991
+- equation: c3h6 + o <=> ac3h5 + oh  # Reaction 312
+  rate-constant: {A: 5.24e+11, b: 0.7, Ea: 5884.0}
+  note: Tsang 1991
+- equation: c3h6 + o <=> pc3h5 + oh  # Reaction 313
+  rate-constant: {A: 1.2e+11, b: 0.7, Ea: 8959.0}
+  note: Tsang 1991
+- equation: c3h6 + o <=> sc3h5 + oh  # Reaction 314
+  rate-constant: {A: 6.03e+10, b: 0.7, Ea: 7632.0}
+  note: Tsang 1991
+- equation: c3h6 + h <=> c2h4 + ch3  # Reaction 315
+  rate-constant: {A: 7.23e+12, b: 0.0, Ea: 1302.0}
+  note: Tsang 1991
+- equation: c3h6 + h <=> ac3h5 + h2  # Reaction 316
+  rate-constant: {A: 1.73e+05, b: 2.5, Ea: 2492.0}
+  note: Tsang 1991
+- equation: c3h6 + h <=> sc3h5 + h2  # Reaction 317
+  rate-constant: {A: 4.09e+05, b: 2.5, Ea: 9794.0}
+  note: Tsang 1991
+- equation: c3h6 + h <=> pc3h5 + h2  # Reaction 318
+  rate-constant: {A: 8.04e+05, b: 2.5, Ea: 1.2284e+04}
+  note: Tsang 1991
+- equation: ac3h5 + ho2 <=> c3h6 + o2  # Reaction 319
+  rate-constant: {A: 3.0e+12, b: 0.0, Ea: 0.0}
+  note: Tsang 1991
+- equation: c3h6 + ch3 <=> ac3h5 + ch4  # Reaction 320
+  rate-constant: {A: 2.22, b: 3.5, Ea: 5675.0}
+  note: Tsang 1991
+- equation: c3h6 + ch3 <=> sc3h5 + ch4  # Reaction 321
+  rate-constant: {A: 0.843, b: 3.5, Ea: 1.1656e+04}
+  note: Tsang 1991
+- equation: c3h6 + ch3 <=> pc3h5 + ch4  # Reaction 322
+  rate-constant: {A: 1.35, b: 3.5, Ea: 1.2848e+04}
+  note: Tsang 1991
+- equation: c3h6 + hco <=> ac3h5 + ch2o  # Reaction 323
+  rate-constant: {A: 1.08e+07, b: 1.9, Ea: 1.701e+04}
+  note: Tsang 1991
+- equation: ch3chco + oh <=> ch2chco + h2o  # Reaction 324
+  rate-constant: {A: 4.0e+06, b: 2.0, Ea: 0.0}
+  note: Marinov 1996
+- equation: ch3chco + o <=> ch2chco + oh  # Reaction 325
+  rate-constant: {A: 7.6e+08, b: 1.5, Ea: 8500.0}
+  note: Marinov 1996
+- equation: ch3chco + h <=> ch2chco + h2  # Reaction 326
+  rate-constant: {A: 2.0e+05, b: 2.5, Ea: 2500.0}
+  note: Marinov 1996
+- equation: ch3chco + h <=> c2h5 + co  # Reaction 327
+  rate-constant: {A: 2.0e+13, b: 0.0, Ea: 2000.0}
+  note: Marinov 1996
+- equation: ch3chco + o <=> ch3 + hco + co  # Reaction 328
+  rate-constant: {A: 3.0e+07, b: 2.0, Ea: 0.0}
+  note: Marinov 1996
+- equation: ch2chcho + oh <=> ch2chco + h2o  # Reaction 329
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1996
+- equation: ch2chcho + o <=> ch2chco + oh  # Reaction 330
+  rate-constant: {A: 7.24e+12, b: 0.0, Ea: 1970.0}
+  note: Marinov 1996
+- equation: ch2chcho + o <=> ch2co + hco + h  # Reaction 331
+  rate-constant: {A: 5.01e+07, b: 1.76, Ea: 76.0}
+  note: Marinov 1996
+- equation: ch2chcho + h <=> ch2chco + h2  # Reaction 332
+  rate-constant: {A: 3.98e+13, b: 0.0, Ea: 4200.0}
+  note: Marinov 1996
+- equation: ch2chcho + h <=> c2h4 + hco  # Reaction 333
+  rate-constant: {A: 2.0e+13, b: 0.0, Ea: 3500.0}
+  note: Marinov 1996
+- equation: ch2chcho + o2 <=> ch2chco + ho2  # Reaction 334
+  rate-constant: {A: 3.0e+13, b: 0.0, Ea: 3.6e+04}
+  note: Marinov 1996
+- equation: ch2chco <=> c2h3 + co  # Reaction 335
+  rate-constant: {A: 1.0e+14, b: 0.0, Ea: 3.4e+04}
+  note: Marinov 1996
+- equation: ch2chco + o <=> c2h3 + co2  # Reaction 336
+  rate-constant: {A: 1.0e+14, b: 0.0, Ea: 0.0}
+  note: Marinov 1996
+- equation: ac3h5 + o2 <=> ch2chcho + oh  # Reaction 337
+  rate-constant: {A: 1.82e+13, b: -0.41, Ea: 2.2859e+04}
+  note: Bozzelli 1993
+- equation: ac3h5 + o2 <=> ac3h4 + ho2  # Reaction 338
+  rate-constant: {A: 4.99e+15, b: -1.4, Ea: 2.2428e+04}
+  note: Bozzelli 1993
+- equation: ac3h5 + o2 <=> ch2hco + ch2o  # Reaction 339
+  rate-constant: {A: 1.06e+10, b: 0.34, Ea: 1.2838e+04}
+  note: Bozzelli 1993
+- equation: ac3h5 + o2 <=> c2h2 + ch2o + oh  # Reaction 340
+  rate-constant: {A: 2.78e+25, b: -4.8, Ea: 1.5468e+04}
+  note: Bozzelli 1993
+- equation: ac3h5 + ho2 <=> ch2chch2o + oh  # Reaction 341
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 0.0}
+  note: Tsang 1991
+- equation: ch2chch2o + o2 <=> ch2chcho + ho2  # Reaction 342
+  rate-constant: {A: 4.0e+10, b: 0.0, Ea: 1100.0}
+  note: Marinov 1998
+- equation: ch2chch2o + co <=> ac3h5 + co2  # Reaction 343
+  rate-constant: {A: 468.0, b: 3.16, Ea: 5380.0}
+  note: Marinov 1998
+- equation: ch2chcho + h (+M) <=> ch2chch2o (+M)  # Reaction 344
+  type: falloff
+  low-P-rate-constant: {A: 1.5e+30, b: -4.8, Ea: 5560.0}
+  high-P-rate-constant: {A: 5.4e+11, b: 0.454, Ea: 2600.0}
+  Troe: {A: 0.78, T3: 94.0, T1: 1555.0, T2: 4200.0}
+  efficiencies: {h2o: 5.0}
+  note: Marinov 1998
+- equation: ac3h5 + oh <=> ac3h4 + h2o  # Reaction 345
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 0.0}
+  note: Tsang 1991
+- equation: ac3h5 + h <=> ac3h4 + h2  # Reaction 346
+  rate-constant: {A: 5.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1996
+- equation: ac3h5 + h <=> c3h6  # Reaction 347
+  rate-constant: {A: 1.88e+26, b: -3.6, Ea: 5468.0}
+  note: Marinov 1996
+- equation: ac3h5 + o <=> ch2chcho + h  # Reaction 348
+  rate-constant: {A: 1.81e+14, b: 0.0, Ea: 0.0}
+  note: Slagle 1992
+- equation: ac3h5 + ch3 <=> ac3h4 + ch4  # Reaction 349
+  rate-constant: {A: 3.02e+12, b: -0.32, Ea: -131.0}
+  note: Tsang 1991
+- equation: pc3h5 + o2 <=> ch3hco + hco  # Reaction 350
+  rate-constant: {A: 1.09e+23, b: -3.29, Ea: 3892.0}
+  note: Marinov 1996
+- equation: pc3h5 + o2 <=> ch3chco + h + o  # Reaction 351
+  rate-constant: {A: 1.6e+15, b: -0.78, Ea: 3135.0}
+  note: Marinov 1996
+- equation: pc3h5 + o <=> ch3chco + h  # Reaction 352
+  rate-constant: {A: 1.0e+14, b: 0.0, Ea: 0.0}
+  note: Marinov 1996
+- equation: pc3h5 + h <=> pc3h4 + h2  # Reaction 353
+  rate-constant: {A: 2.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1996
+- equation: pc3h5 + oh <=> pc3h4 + h2o  # Reaction 354
+  rate-constant: {A: 1.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1996
+- equation: pc3h5 + h <=> ac3h5 + h  # Reaction 355
+  rate-constant: {A: 1.0e+14, b: 0.0, Ea: 0.0}
+  note: Marinov 1996
+- equation: sc3h5 + h <=> ac3h5 + h  # Reaction 356
+  rate-constant: {A: 1.0e+14, b: 0.0, Ea: 0.0}
+  note: Marinov 1996
+- equation: sc3h5 + o2 <=> ch3co + ch2o  # Reaction 357
+  rate-constant: {A: 1.09e+22, b: -3.29, Ea: 3892.0}
+  note: Marinov 1996
+- equation: sc3h5 + o <=> ch2co + ch3  # Reaction 358
+  rate-constant: {A: 1.0e+14, b: 0.0, Ea: 0.0}
+  note: Marinov 1996
+- equation: sc3h5 + h <=> pc3h4 + h2  # Reaction 359
+  rate-constant: {A: 4.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1996
+- equation: sc3h5 + oh <=> pc3h4 + h2o  # Reaction 360
+  rate-constant: {A: 2.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1996
+- equation: ac3h4 + h <=> h2ccch + h2  # Reaction 361
+  rate-constant: {A: 2.0e+07, b: 2.0, Ea: 5000.0}
+  note: Marinov 1997
+- equation: ac3h4 + o <=> c2h4 + co  # Reaction 362
+  rate-constant: {A: 1.34e+07, b: 1.88, Ea: 179.0}
+  note: Marinov 1996
+- equation: ac3h4 + oh <=> h2ccch + h2o  # Reaction 363
+  rate-constant: {A: 1.0e+07, b: 2.0, Ea: 1000.0}
+  note: Marinov 1997
+- equation: ac3h4 + ch3 <=> h2ccch + ch4  # Reaction 364
+  rate-constant: {A: 1.5, b: 3.5, Ea: 5600.0}
+  note: Marinov 1997
+- equation: ac3h4 <=> pc3h4  # Reaction 365
+  rate-constant: {A: 1.48e+13, b: 0.0, Ea: 6.0401e+04}
+  note: Marinov 1997
+- equation: pc3h4 + h <=> h2ccch + h2  # Reaction 366
+  rate-constant: {A: 2.0e+07, b: 2.0, Ea: 5000.0}
+  note: Marinov 1997
+- equation: pc3h4 + o <=> c2h4 + co  # Reaction 367
+  rate-constant: {A: 1.5e+13, b: 0.0, Ea: 2102.0}
+  note: Marinov 1996
+- equation: pc3h4 + oh <=> h2ccch + h2o  # Reaction 368
+  rate-constant: {A: 1.0e+07, b: 2.0, Ea: 1000.0}
+  note: Marinov 1997
+- equation: pc3h4 + ch3 <=> h2ccch + ch4  # Reaction 369
+  rate-constant: {A: 1.5, b: 3.5, Ea: 5600.0}
+  note: Marinov 1997
+- equation: pc3h4 + h <=> ch3 + c2h2  # Reaction 370
+  rate-constant: {A: 5.12e+10, b: 1.0, Ea: 2060.0}
+  note: Marinov 1997
+- equation: pc3h4 + h (+M) <=> sc3h5 (+M)  # Reaction 371
+  type: falloff
+  low-P-rate-constant: {A: 8.45e+39, b: -7.27, Ea: 6577.0}
+  high-P-rate-constant: {A: 6.5e+12, b: 0.0, Ea: 2000.0}
+  note: Wagner 1972
+- equation: ac3h4 + h (+M) <=> ac3h5 (+M)  # Reaction 372
+  type: falloff
+  low-P-rate-constant: {A: 5.56e+33, b: -5.0, Ea: 4448.0}
+  high-P-rate-constant: {A: 1.2e+11, b: 0.69, Ea: 3007.0}
+  note: |-
+    Marinov 1996
+    Tsang 1992
+- equation: ac3h4 + h (+M) <=> sc3h5 (+M)  # Reaction 373
+  type: falloff
+  low-P-rate-constant: {A: 1.11e+34, b: -5.0, Ea: 4448.0}
+  high-P-rate-constant: {A: 8.49e+12, b: 0.0, Ea: 2000.0}
+  note: |-
+    Marinov 1996
+    Wagner 1972
+- equation: h2ccch + o2 <=> ch2co + hco  # Reaction 374
+  rate-constant: {A: 3.0e+10, b: 0.0, Ea: 2868.0}
+  note: |-
+    Marinov 1996
+    Miller 1992
+- equation: h2ccch + o <=> ch2o + c2h  # Reaction 375
+  rate-constant: {A: 1.4e+14, b: 0.0, Ea: 0.0}
+  note: Pauwels 1995
+- equation: h2ccch + h <=> c3h2 + h2  # Reaction 376
+  rate-constant: {A: 5.0e+13, b: 0.0, Ea: 1000.0}
+  note: Pauwels 1995
+- equation: h2ccch + oh <=> c3h2 + h2o  # Reaction 377
+  rate-constant: {A: 2.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992
+- equation: h2ccch + ch3 <=> c3h2 + ch4  # Reaction 378
+  rate-constant: {A: 2.0e+13, b: 0.0, Ea: 0.0}
+  note: Marinov 1997
+- equation: h2ccch + h (+M) <=> ac3h4 (+M)  # Reaction 379
+  type: falloff
+  low-P-rate-constant: {A: 3.36e+45, b: -8.52, Ea: 6293.0}
+  high-P-rate-constant: {A: 1.66e+15, b: -0.37, Ea: 0.0}
+  efficiencies: {h2o: 5.0, h2: 2.0, co2: 3.0, co: 2.0, o2: 2.0, c2h2: 2.0}
+  note: Marinov 1996
+- equation: h2ccch + h (+M) <=> pc3h4 (+M)  # Reaction 380
+  type: falloff
+  low-P-rate-constant: {A: 8.78e+45, b: -8.9, Ea: 7974.0}
+  high-P-rate-constant: {A: 1.66e+15, b: -0.37, Ea: 0.0}
+  efficiencies: {h2o: 5.0, h2: 2.0, co2: 3.0, co: 2.0, o2: 2.0, c2h2: 2.0}
+  note: |-
+    Kiefer 1995
+    Marinov 1996
+- equation: c3h2 + o2 <=> hcco + co + h  # Reaction 381
+  rate-constant: {A: 2.0e+12, b: 0.0, Ea: 1000.0}
+  note: |-
+    Kiefer 1995
+    Pauwels 1995
+- equation: c3h2 + o <=> c2h2 + co  # Reaction 382
+  rate-constant: {A: 1.0e+14, b: 0.0, Ea: 0.0}
+  note: Pauwels 1995
+- equation: c3h2 + oh <=> c2h2 + hco  # Reaction 383
+  rate-constant: {A: 5.0e+13, b: 0.0, Ea: 0.0}
+  note: Miller 1992

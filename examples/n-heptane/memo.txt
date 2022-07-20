@@ -1,0 +1,19 @@
+
+Reference of the sample computation:
+Akira Yamamoto, Hiroshi Oshibe, Hisashi Nakamura, Takuya Tezuka, Susumu Hasegawa, Kaoru Maruta
+Stabilized three-stage oxidation of gaseous n-heptane/air mixture in a micro flow reactor with a controlled temperature profile
+Proceedings of the Combustion Institute, Vol.33, Issue 2:3259-3266 (2011).
+https://doi.org/10.1016/j.proci.2010.05.004
+
+The sample computation is equivalent to the plot at 1 atm in Fig. 8 of the paper.
+
+
+Reference of the reaction model used in the sample computation:
+R. Seiser, H. Pitsch, K. Seshadri, W.J. Pitz, H.J. Curran, 
+Extinction and autoignition of n-heptane in counterflow configuration
+Proceedings of the Combustion Institute, Vol.28, Issue 2:2029-2036 (2000).
+https://doi.org/10.1016/S0082-0784(00)80610-4
+
+The mechanism website:(accessed April 14, 2022)
+https://combustion.llnl.gov/archived-mechanisms/alkanes/heptane-reduced-mechanism
+
