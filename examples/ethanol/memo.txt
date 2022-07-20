@@ -1,0 +1,21 @@
+
+Reference of the sample computation:
+Hisashi Nakamura, Akira Yamamoto, Mikito Hori, Takuya Tezuka, Susumu Hasegawa, Kaoru Maruta,
+Study on pressure dependences of ethanol oxidation by separated weak flames in a micro flow reactor with a controlled temperature profile,
+Proceedings of the Combustion Institute, Vol.34, Issue 2:3435-3443 (2013).
+
+The sample computation is equivalent to the plot at 5 atm in Fig. 8 of the paper.
+Note that x-axis of the figure is wall temperature, not gas temperature.
+
+
+Reference of the reaction model used in the sample computation:
+Nick M. Marinov,
+A detailed chemical kinetic model for high temperature ethanol oxidation
+International Journal of Chemical Kinetics, Vol. 31, Issue 3:183-220 (1999).
+https://doi.org/10.1002/(SICI)1097-4601(1999)31:3%3C183::AID-KIN3%3E3.0.CO;2-X
+
+The mechanism website:(accessed April 14, 2022)
+https://combustion.llnl.gov/archived-mechanisms/ethanol
+
+
+

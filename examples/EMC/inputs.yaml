@@ -1,0 +1,29 @@
+PrePost:
+  rawData: true
+
+mfr:
+  Restart: false
+  restartFile: Restart.xml
+  simWithPhi: false
+  mixComp: "CCOC*OOC: 1.50, O2: 6.75, N2: 91.75"
+  uVel: 2.73e-2 # (m/s)
+  pres: 1.0 # (atm)
+  temp: 373.0 # (K)
+  length: 0.1 # (m)
+  diameter: 2.0e-3 # (m)
+  tempWall: Tw.inp # [(m), (K)]
+  outFile: Result.csv
+  nusseltNum: 4.0
+  atol: 1.0e-6
+  rtol: 1.0e-3
+
+cantera:
+  mechFile: chem.yaml
+
+solver:
+  logging: 1
+
+refineCriterion:
+  ratio: 3.0
+  slope: 0.10
+  curve: 0.10

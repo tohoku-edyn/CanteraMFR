@@ -1,0 +1,17 @@
+
+Reference of the sample computation:
+Shintaro Takahashi, Keisuke Kanayama, Shota Morikura, Hisashi Nakamura, Takuya Tezuka, Kaoru Maruta
+Study on oxidation and pyrolysis of carbonate esters using a micro flow reactor with a controlled temperature profile. Part II: Chemical kinetic modeling of ethyl methyl carbonate
+Combustion and Flame, Vol.238, 111878 (2022).
+https://doi.org/10.1016/j.combustflame.2021.111878
+
+
+The sample computation is equivalent to the plot at Tw,max = 900 K in Fig. 5 of the paper.
+Values at the end of the reactor were used in the figure.
+
+
+Reference of the reaction model used in the sample computation:
+same as reference of the sample computation:
+
+
+
