@@ -36,8 +36,7 @@ Install Cantera
     
 ### Run an example of CanteraMFR for Ammonia
     cd ..
-    mkdir work
-    cp -r examples/ammonia/ work/
+    cp -r examples/ammonia work
     cd work
     ./mfr
 
