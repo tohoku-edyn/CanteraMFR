@@ -5,7 +5,9 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 #===== Ubuntu 18.04 =====#
 #set(CMAKE_CXX_STANDARD 14)
 #===== Ubuntu 20.04 =====#
-set(CMAKE_CXX_STANDARD 20)
+#set(CMAKE_CXX_STANDARD 20)
+#===== Ubuntu 22.04 =====#
+# Keep blank here!
 
 SET(EXECUTABLE_OUTPUT_PATH "../work")
 
@@ -15,7 +17,7 @@ if(APPLE)
     include_directories("/usr/local/include" "/usr/local/Cellar/boost/1.76.0/include" "/usr/local/include")
     link_directories("/usr/local/lib")
 else()
-    include_directories("/usr/local/include" "/usr/local/include" "/usr/include/eigen3")
+    include_directories("/usr/include" "/usr/include/eigen3")
     link_directories("/usr/lib")
 endif(APPLE)
 
@@ -29,5 +31,7 @@ else()
     #===== Ubuntu 18.04 =====#
     #target_link_libraries(mfr cantera sundials_cvodes sundials_ida sundials_nvecserial yaml-cpp lapack blas Threads::Threads)
     #===== Ubuntu 20.04 =====#
-    target_link_libraries(mfr cantera sundials_cvodes sundials_ida sundials_nvecserial sundials_sunlinsollapackdense sundials_sunlinsollapackband yaml-cpp lapack blas Threads::Threads)
+    #target_link_libraries(mfr cantera sundials_cvodes sundials_ida sundials_nvecserial sundials_sunlinsollapackdense sundials_sunlinsollapackband yaml-cpp lapack blas Threads::Threads)
+    #===== Ubuntu 22.04 =====#
+    target_link_libraries(mfr cantera sundials_cvodes sundials_ida sundials_nvecserial sundials_sunlinsoldense sundials_sunlinsolband fmt yaml-cpp lapack blas Threads::Threads)
 endif(APPLE)
