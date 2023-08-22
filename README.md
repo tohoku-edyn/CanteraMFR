@@ -50,6 +50,19 @@ Install Cantera
 ### Set conditions
 Please modify "inputs.yaml".
 
+### For Windows users
+The method shown below is one example. There might be other methods.
+
+    1. Install "Windows Subsystem for Linux" from Microsoft Store.
+    2. Install "Ubuntu" from Microsoft Store.
+    3. Enable "Virtual Machine Platform" in Windows Control Panel.
+    4. Run Ubuntu.
+    5. Install Cantera.
+         sudo apt update
+         sudo apt install python3-pip
+         python3 -m pip install cantera
+    6. Follow instructions for Ubuntu above.
+
 # FAQ on the MFR system
 - [Computational model for weak flame in MFR](http://www.ifs.tohoku.ac.jp/enerdyn/en/research/mfr-faq1.html)
 - [Temperature difference between weak flame and wall](http://www.ifs.tohoku.ac.jp/enerdyn/en/research/mfr-faq2.html)
