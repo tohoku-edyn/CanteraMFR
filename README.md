@@ -2,9 +2,14 @@
 
 Simulate MFR using Cantera.
 
-## Ubuntu 18.04 or 20.04
+## Ubuntu 22.04
 
 ### Prepare software libraries
+Update & Upgrade
+
+    sudo apt update
+    sudo apt upgrade
+    
 Install fmt
 
     sudo apt install libfmt-dev
@@ -13,9 +18,11 @@ Install boost
 
     sudo apt install libboost-dev
     
-Install git
+Install git & gh
 
-    sudo apt install git    
+    sudo apt install git 
+    sudo apt install gh
+    gh auth login
 
 Install Cantera
 
@@ -25,7 +32,7 @@ Install Cantera
     
 ### Compile CanteraMFR
 
-    git clone https://github.com/Youhichka/CanteraMFR.git
+    gh repo clone tohoku-edyn/CanteraMFR
     cd CanteraMFR
     mkdir build
     cd build
@@ -36,9 +43,9 @@ Install Cantera
     
 ### Run an example of CanteraMFR for Ammonia
     cd ..
-    cp -r examples/ammonia work
+    cp -r examples/ammonia/* work/
     cd work
-    ./mfr
+    ./mfr inputs.yaml
 
 ### Set conditions
 Please modify "inputs.yaml".
