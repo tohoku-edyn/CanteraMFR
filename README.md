@@ -39,7 +39,7 @@ Install Cantera
     cmake ../
     make
 
-**Note: If your Ubuntu version is 18.04, don't forget to modify 'CMakeLists.txt'.**
+**Note: If your Ubuntu version is 18.04 or 20.04, don't forget to modify 'CMakeLists.txt'.**
     
 ### Run an example of CanteraMFR for Ammonia
     cd ..
