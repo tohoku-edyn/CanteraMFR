@@ -1,0 +1,18 @@
+
+Reference of the sample computation:
+Kenta Tamaoki, Yuki Murakami, Keisuke Kanayama, Takuya Tezuka, Masahiko Izumi, Hisashi Nakamura
+Roles of NH2 reactions in ammonia oxidation at intermediate temperatures: Experiments and chemical kinetic modeling
+Combustion and Flame, Vol.259, 113177 (2024).
+https://doi.org/10.1016/j.combustflame.2023.113177
+
+
+The sample computation is equivalent to the plot at Tw,max = 1400 K of PW legend in Fig. 5 of the paper.
+Values at the end of the reactor were used in the figure.
+Note that Fig. 5a uses the normalized value.
+
+
+Reference of the reaction model used in the sample computation:
+same as reference of the sample computation:
+
+
+

@@ -1,0 +1,31 @@
+PrePost:
+  rawData: true
+
+mfr:
+  Restart: false
+  restartFile: Restart.xml
+  simWithPhi: true
+  equilRatio: 1.0
+  fuelComp: "NH3: 1.0"
+  oxyComp: "O2: 0.20, Ar: 0.80"
+  uVel: 2.7e-2 # [m/s]
+  pres: 1.0 # [atm]
+  temp: 373.0 # [K]
+  length: 0.13 # [m]
+  diameter: 2e-3 # [m]
+  tempWall: Tw_1400K.inp
+  outFile: Result_1400K.csv
+  nusseltNum: 4.0
+  atol: 1.0e-6
+  rtol: 1.0e-3
+
+cantera:
+  mechFile: chem.yaml
+
+solver:
+  logging: 1
+
+refineCriterion:
+  ratio: 3.0
+  slope: 0.09
+  curve: 0.09
