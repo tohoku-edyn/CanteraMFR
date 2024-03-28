@@ -123,6 +123,6 @@ int main(int argc, char *argv[]) {
 
     if (mfr.WriteRawData) {
         std::cout << "Save xml file.";
-        flame.save("rawData.xml", "solution", "");
+        flame.save(mfr.FileNameRaw, "solution", "");
     }
 }

@@ -36,6 +36,7 @@ namespace MicroFlowReactor {
         double NusseltNumber;
         std::string FileNameIn;
         std::string FileNameOut;
+        std::string FileNameRaw;
         std::string FileNameRestart;
         std::string MechanismFile;
 
@@ -60,6 +61,7 @@ namespace MicroFlowReactor {
                 YAML::Node config = YAML::LoadFile(InputFile);
                 // PrePost block
                 WriteRawData = config["PrePost"]["rawData"].as<bool>();
+                FileNameRaw = config["PrePost"]["rawFile"].as<std::string>("rawData.xml");
                 // cantera block
                 MechanismFile = config["cantera"]["mechFile"].as<std::string>();
                 // mfr block
