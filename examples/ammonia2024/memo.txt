@@ -6,7 +6,7 @@ Combustion and Flame, Vol.259, 113177 (2024).
 https://doi.org/10.1016/j.combustflame.2023.113177
 
 
-The sample computation is equivalent to the plot at Tw,max = 1400 K of PW legend in Fig. 5 of the paper.
+The sample computation is equivalent to the plot at Tw,max = 1400 K and phi = 1.0 of PW legend in Fig. 5 of the paper.
 Values at the end of the reactor were used in the figure.
 Note that Fig. 5a uses the normalized value.
 
