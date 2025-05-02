@@ -3,7 +3,7 @@ PrePost:
 
 mfr:
   Restart: false
-  restartFile: Restart.xml
+  restartFile: Restart.yaml
   simWithPhi: false
   mixComp: "CCOC*OOC: 1.50, O2: 6.75, N2: 91.75"
   uVel: 2.73e-2 # (m/s)
