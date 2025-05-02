@@ -61,7 +61,7 @@ namespace MicroFlowReactor {
                 YAML::Node config = YAML::LoadFile(InputFile);
                 // PrePost block
                 WriteRawData = config["PrePost"]["rawData"].as<bool>();
-                FileNameRaw = config["PrePost"]["rawFile"].as<std::string>("rawData.xml");
+                FileNameRaw = config["PrePost"]["rawFile"].as<std::string>("rawData.yaml");
                 // cantera block
                 MechanismFile = config["cantera"]["mechFile"].as<std::string>();
                 // mfr block
