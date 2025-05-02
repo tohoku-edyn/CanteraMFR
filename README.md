@@ -43,7 +43,7 @@ Install Cantera
     
 ### Run an example of CanteraMFR for Ammonia
     cd ..
-    cp -r examples/ammonia/* work/
+    cp -r examples/ammonia2024/* work/
     cd work
     ./mfr inputs.yaml
 
