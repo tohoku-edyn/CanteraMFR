@@ -3,7 +3,7 @@ PrePost:
 
 mfr:
   Restart: false
-  restartFile: Restart.xml
+  restartFile: Restart.yaml
   simWithPhi: true
   equilRatio: 1.0
   fuelComp: "nc7h16: 1.0"
