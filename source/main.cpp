@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
 
     //TODO: We have to discuss how to replace ",".
     std::ofstream outfile(mfr.FileNameOut, std::ios::trunc);
-    outfile << "x (m),Temperature (K),Tw(K),Velocity (m/s),Heat Release Rate (J/s/m3)";
+    outfile << "x (m),Temperature (K),Tw(K),Velocity (m/s),Heat Release Rate (J/s/m3)", Density (kg/m3), Pressure (MPa)";
     for (auto i = 0; i < NumSpecies; i++) {
         std::string replacedSpecName = std::regex_replace(SpeciesNames[i], std::regex(","),"__");
         outfile << ",X_" << replacedSpecName;
@@ -116,7 +116,9 @@ int main(int argc, char *argv[]) {
                 << tmpTemperature << ","
                 << flow.getTwAt(flow.grid(n)) << ","
                 << flame.value(mfr.Domain, flow.componentIndex("velocity"), n) << ","
-                << HeatReleaseRate;
+                << HeatReleaseRate << ","
+                << flow.density(n) << ","
+                << flow.pressure()/1e6; // MPa
         for (auto i = 0; i < NumSpecies; i++) outfile << "," << tmpMoleFrac[i];
         outfile << "\n";
     }
