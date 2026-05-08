@@ -1,6 +1,7 @@
 #include <iostream>
 #include <regex>
 #include "mfr.hpp"
+#include "cantera/base/config.h"
 
 int main(int argc, char *argv[]) {
     std::vector<std::string> args(argv, argv + argc);
@@ -11,6 +12,9 @@ int main(int argc, char *argv[]) {
         std::cout << "You have to add the command line argument for the input file." << std::endl;
         return 0;
     }
+
+    std::cout << "Using Cantera: " << CANTERA_VERSION << std::endl;
+
     MicroFlowReactor::WeakFlame mfr(inputFile);
 
     auto sol = newSolution(mfr.MechanismFile, "gas");
@@ -56,7 +60,8 @@ int main(int argc, char *argv[]) {
     }
     flow.setupGrid(NumGrid, &z[0]);
 
-    std::unique_ptr<Transport> tran(newTransportMgr("Mix", sol->thermo().get()));
+    std::unique_ptr<Transport> tran(newTransportMgr(mfr.GasModel, sol->thermo().get()));
+    flow.enableSoret(mfr.EnableSoret);
     flow.setTransport(*tran);
     flow.setKinetics(*sol->kinetics());
     flow.setPressure(mfr.Pressure);
@@ -81,6 +86,7 @@ int main(int argc, char *argv[]) {
     flow.solveEnergyEqn();
     flame.showSolution();
     flame.setRefineCriteria(mfr.Domain, mfr.RefineCriteriaRatio, mfr.RefineCriteriaCurve, mfr.RefineCriteriaSlope);
+    flame.setMaxGridPoints(-1, mfr.MaxGridPoints);
     inlet.setMoleFractions(x.data());
     inlet.setMdot(mfr.MassFlowRate);
     inlet.setTemperature(mfr.Temperature);

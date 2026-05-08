@@ -39,6 +39,8 @@ namespace MicroFlowReactor {
         std::string FileNameRaw;
         std::string FileNameRestart;
         std::string MechanismFile;
+        std::string GasModel;
+        bool EnableSoret;
 
         const int Domain = 1;
         int Log;
@@ -55,6 +57,7 @@ namespace MicroFlowReactor {
 
         double AtolMRF;
         double RtolMRF;
+        int MaxGridPoints;
 
         WeakFlame(std::string InputFile) {
             try {
@@ -85,12 +88,15 @@ namespace MicroFlowReactor {
                 NusseltNumber = config["mfr"]["nusseltNum"].as<double>();
                 AtolMRF = config["mfr"]["atol"].as<double>();
                 RtolMRF = config["mfr"]["rtol"].as<double>();
+                EnableSoret = config["mfr"]["enableSoret"].as<bool>();
+                GasModel = config["mfr"]["gasModel"].as<std::string>();
                 // solver block
                 Log = config["solver"]["logging"].as<int>();
                 // refineCriterion block
                 RefineCriteriaRatio = config["refineCriterion"]["ratio"].as<double>();
                 RefineCriteriaSlope = config["refineCriterion"]["slope"].as<double>();
                 RefineCriteriaCurve = config["refineCriterion"]["curve"].as<double>();
+                MaxGridPoints = config["refineCriterion"]["maxGridPoints"].as<int>();
             }
             catch (YAML::Exception &e) {
                 std::cerr << e.what() << std::endl;
@@ -105,6 +111,8 @@ namespace MicroFlowReactor {
         double NusseltNumber;
         double TubeDiameter; //[m]
 
+        // WeakFlameStFlow(shared_ptr<ThermoPhase>
+        // WeakFlameStFlow(auto gas
         WeakFlameStFlow(auto gas, double nusseltNumber, double tubeDiameter) : Cantera::StFlow(gas) {
             NusseltNumber = nusseltNumber;
             TubeDiameter = tubeDiameter;

@@ -19,6 +19,8 @@ mfr:
   nusseltNum: 4.0
   atol: 1.0e-6
   rtol: 1.0e-3
+  enableSoret: true
+  gasModel: Multicomponent
 
 cantera:
   mechFile: chem.yaml
@@ -30,3 +32,4 @@ refineCriterion:
   ratio: 3.0
   slope: 0.09
   curve: 0.09
+  maxPoints: 10000
